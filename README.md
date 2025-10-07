@@ -44,7 +44,7 @@ Aqui está um índice dos principais projetos e atividades desenvolvidos. Esta s
 Enquanto este repositório é focado em Front-end, minha jornada de aprendizado principal em Backend e IA/ML está documentada em outro lugar. Conecte-se comigo para acompanhar a jornada completa!
 
 * **🐍 Repositório Principal (Python & IA/ML):** [jornada-python](https://github.com/danfelixx11/jornada-python)
-* **💼 Perfil Profissional no LinkedIn:** [Daniel Félix de Oliveira](https://www.linkedin.com/in/danielfelix-dev/)
+* **💼 Perfil Profissional no LinkedIn:** [Daniel Félix de Oliveira](https://www.linkedin.com/in/danfelix-dev/)
 
 ## 📈 Status
 
