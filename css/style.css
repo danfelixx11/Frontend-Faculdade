@@ -195,3 +195,63 @@ footer .newsletter-form button {
   font-size: var(--tamanho-texto-grande);
   display: inline-block; /* Permite que o padding funcione corretamente */
 }
+
+/* ============================================= */
+/* SEÇÃO PILARES (INDEX.HTML)                    */
+/* ============================================= */
+
+.pilares-container {
+  display: flex; /* Ativa o Flexbox! */
+  justify-content: center; /* Centraliza os cards no container */
+  gap: var(--espacamento-l); /* Cria um espaço entre os cards */
+  flex-wrap: wrap; /* Permite que os cards quebrem a linha em telas pequenas */
+  margin-top: var(--espacamento-xl);
+}
+
+.pilar-card {
+  background-color: #ffffff; /* Fundo branco para o card */
+  padding: var(--espacamento-l) var(--espacamento-m);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidade */
+  width: 200px; /* Largura fixa para cada card */
+  text-align: center;
+}
+
+.pilar-card p {
+  font-size: var(--tamanho-texto-grande);
+  font-weight: bold;
+}
+
+/* ============================================= */
+/* SEÇÃO NÚMEROS (INDEX.HTML)                    */
+/* ============================================= */
+
+.secao-numeros {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  
+  /* Um truque para criar a forma ondulada como na inspiração */
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+  padding-top: 100px; /* Mais padding para compensar o clip-path */
+  padding-bottom: 100px;
+}
+
+.numeros-container {
+  display: flex;
+  justify-content: space-around; /* Distribui os itens com espaço igual */
+  align-items: center;
+}
+
+.numero-item {
+  text-align: center;
+}
+
+.numero-item .numero {
+  font-size: var(--tamanho-titulo-1);
+  font-weight: bold;
+  color: var(--cor-sucesso); /* Usando nossa cor de 'sucesso' para destaque */
+}
+
+.numero-item .descricao {
+  font-size: var(--tamanho-texto-grande);
+}
