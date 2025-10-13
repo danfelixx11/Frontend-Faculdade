@@ -1,0 +1,56 @@
+/* ============================================= */
+/* DESIGN SYSTEM                                 */
+/* ============================================= */
+
+:root {
+  /* Paleta de Cores */
+  --cor-primaria: #0a3d62; /* Azul escuro (para cabeçalho, rodapé, títulos) */
+  --cor-secundaria: #3c6382; /* Azul médio (para seções de destaque) */
+  --cor-acento: #60a3bc; /* Azul claro (para botões e links) */
+  --cor-fundo: #f1f2f6; /* Cinza bem claro (para o fundo geral) */
+  --cor-texto: #1e272e; /* Grafite (para textos principais) */
+  --cor-texto-claro: #ffffff; /* Branco (para textos sobre fundos escuros) */
+  --cor-sucesso: #4cd137; /* Verde (para mensagens de sucesso) */
+  --cor-aviso: #fbc531; /* Amarelo (para avisos) */
+
+  /* Tipografia */
+  --fonte-principal: "Roboto", sans-serif; /* Adicione o link do Google Fonts depois */
+  --tamanho-titulo-1: 3rem; /* 48px */
+  --tamanho-titulo-2: 2rem; /* 32px */
+  --tamanho-titulo-3: 1.5rem; /* 24px */
+  --tamanho-texto-grande: 1.125rem; /* 18px */
+  --tamanho-texto-normal: 1rem; /* 16px */
+
+  /* Espaçamentos */
+  --espacamento-xs: 0.5rem; /* 8px */
+  --espacamento-s: 1rem; /* 16px */
+  --espacamento-m: 1.5rem; /* 24px */
+  --espacamento-l: 2rem; /* 32px */
+  --espacamento-xl: 3rem; /* 48px */
+  --espacamento-xxl: 4rem; /* 64px */
+}
+
+/* ============================================= */
+/* RESET BÁSICO                                  */
+/* ============================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+a {
+  text-decoration: none;
+  color: var(--cor-acento);
+}
+
+ul {
+  list-style: none;
+}
