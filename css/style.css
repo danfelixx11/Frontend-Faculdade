@@ -54,3 +54,144 @@ a {
 ul {
   list-style: none;
 }
+
+/* ============================================= */
+/* HEADER                                        */
+/* ============================================= */
+
+header {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-m) var(--espacamento-xl);
+
+  /* A mágica do Flexbox começa aqui! */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: var(--tamanho-titulo-3);
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-l); /* Cria um espaço entre os itens do menu */
+}
+
+header nav ul a {
+  color: var(--cor-texto-claro);
+  font-size: var(--tamanho-texto-grande);
+  padding: var(--espacamento-xs);
+}
+
+/* Estilizando o botão para se parecer com o resto do menu */
+header nav ul .btn-cta {
+  background-color: var(--cor-acento);
+  color: var(--cor-texto-claro);
+  border: none;
+  padding: var(--espacamento-s) var(--espacamento-m);
+  border-radius: 4px;
+  font-size: var(--tamanho-texto-normal);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ============================================= */
+/* FOOTER                                        */
+/* ============================================= */
+
+footer {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-xl) var(--espacamento-xl);
+  margin-top: var(--espacamento-xxl); /* Adiciona um espaço antes do rodapé */
+
+  /* Usando Flexbox para alinhar as seções do rodapé */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinha os itens no topo */
+}
+
+footer h2 {
+  font-size: var(--tamanho-titulo-3);
+  margin-bottom: var(--espacamento-m);
+}
+
+footer p {
+  margin-bottom: var(--espacamento-xs);
+}
+
+/* Estilizando a seção de contato */
+footer address {
+  font-style: normal;
+  max-width: 30%;
+}
+
+/* Estilizando a seção da Newsletter */
+footer .newsletter-form input {
+  display: block;
+  margin-bottom: var(--espacamento-s);
+  padding: var(--espacamento-s);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+}
+
+footer .newsletter-form button {
+  background-color: var(--cor-acento);
+  color: var(--cor-texto-claro);
+  border: none;
+  padding: var(--espacamento-s);
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* ============================================= */
+/* SEÇÕES GLOBAIS                                */
+/* ============================================= */
+
+.secao {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center; /* Centraliza o texto dentro das seções */
+}
+
+/* ============================================= */
+/* SEÇÃO HERÓI (INDEX.HTML)                      */
+/* ============================================= */
+
+/* Use uma classe específica para a seção herói */
+.secao-heroi {
+  background-color: #ffffff; /* Um fundo branco para destacar */
+}
+
+.secao-heroi h2 {
+  font-size: var(--tamanho-titulo-1);
+  margin-bottom: var(--espacamento-m);
+}
+
+.secao-heroi p {
+  font-size: var(--tamanho-texto-grande);
+  margin-bottom: var(--espacamento-l);
+}
+
+.secao-heroi img {
+  max-width: 100%; /* Garante que a imagem seja responsiva */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: var(--espacamento-l);
+}
+
+/* Estilo para o nosso novo botão principal */
+.btn-principal {
+  background-color: var(--cor-acento);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-s) var(--espacamento-l);
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: var(--tamanho-texto-grande);
+  display: inline-block; /* Permite que o padding funcione corretamente */
+}
