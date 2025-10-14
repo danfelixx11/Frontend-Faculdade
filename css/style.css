@@ -1,33 +1,34 @@
 /* ============================================= */
-/* DESIGN SYSTEM                                 */
+/* DESIGN SYSTEM (Versão 2.0 - Vibrante)         */
 /* ============================================= */
 
 :root {
   /* Paleta de Cores */
-  --cor-primaria: #0a3d62; /* Azul escuro (para cabeçalho, rodapé, títulos) */
-  --cor-secundaria: #3c6382; /* Azul médio (para seções de destaque) */
-  --cor-acento: #60a3bc; /* Azul claro (para botões e links) */
-  --cor-fundo: #f1f2f6; /* Cinza bem claro (para o fundo geral) */
-  --cor-texto: #1e272e; /* Grafite (para textos principais) */
-  --cor-texto-claro: #ffffff; /* Branco (para textos sobre fundos escuros) */
-  --cor-sucesso: #4cd137; /* Verde (para mensagens de sucesso) */
-  --cor-aviso: #fbc531; /* Amarelo (para avisos) */
+  --cor-primaria: #0d6efd; /* Azul vibrante do banner */
+  --cor-secundaria: #0a3d62; /* Azul escuro (para contraste e textos) */
+  --cor-acento: #1b9cfc; /* Azul claro (para o botão CTA e hover) */
+  --cor-fundo: #f8f9fa; /* Cinza muito claro, quase branco */
+  --cor-texto: #212529; /* Preto suave (para textos principais) */
+  --cor-texto-claro: #ffffff; /* Branco */
+  --cor-sucesso: #198754; /* Verde (para mensagens de sucesso) */
+  --cor-aviso: #ffc107; /* Amarelo (para avisos) */
 
   /* Tipografia */
-  --fonte-principal: "Roboto", sans-serif; /* Adicione o link do Google Fonts depois */
-  --tamanho-titulo-1: 3rem; /* 48px */
-  --tamanho-titulo-2: 2rem; /* 32px */
-  --tamanho-titulo-3: 1.5rem; /* 24px */
-  --tamanho-texto-grande: 1.125rem; /* 18px */
-  --tamanho-texto-normal: 1rem; /* 16px */
+  --fonte-principal: "Roboto", sans-serif;
+  --fonte-mono: "Roboto Mono", monospace;
+  --tamanho-titulo-1: 3rem;
+  --tamanho-titulo-2: 2rem;
+  --tamanho-titulo-3: 1.5rem;
+  --tamanho-texto-grande: 1.125rem;
+  --tamanho-texto-normal: 1rem;
 
   /* Espaçamentos */
-  --espacamento-xs: 0.5rem; /* 8px */
-  --espacamento-s: 1rem; /* 16px */
-  --espacamento-m: 1.5rem; /* 24px */
-  --espacamento-l: 2rem; /* 32px */
-  --espacamento-xl: 3rem; /* 48px */
-  --espacamento-xxl: 4rem; /* 64px */
+  --espacamento-xs: 0.5rem;
+  --espacamento-s: 1rem;
+  --espacamento-m: 1.5rem;
+  --espacamento-l: 2rem;
+  --espacamento-xl: 3rem;
+  --espacamento-xxl: 4rem;
 }
 
 /* ============================================= */
@@ -55,47 +56,336 @@ ul {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 /* ============================================= */
-/* HEADER                                        */
+/* HEADERS (HERO E PADRÃO)                       */
 /* ============================================= */
 
-header {
+/* ESTILO DO HERO HEADER (INDEX.HTML) */
+.hero-header {
+  display: flex;
+  width: 100%;
+  min-height: 80vh;
   background-color: var(--cor-primaria);
   color: var(--cor-texto-claro);
-  padding: var(--espacamento-m) var(--espacamento-xl);
+}
 
-  /* A mágica do Flexbox começa aqui! */
+.hero-conteudo {
+  flex: 1;
+  padding: var(--espacamento-xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-imagem {
+  flex: 1;
+  display: none;
+}
+
+.hero-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-topo {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header h1 {
+.hero-logo h1 {
   font-size: var(--tamanho-titulo-3);
 }
 
-header nav ul {
+.hero-nav ul {
   display: flex;
-  align-items: center;
-  gap: var(--espacamento-l); /* Cria um espaço entre os itens do menu */
+  gap: var(--espacamento-l);
 }
 
-header nav ul a {
+.hero-nav a {
   color: var(--cor-texto-claro);
   font-size: var(--tamanho-texto-grande);
-  padding: var(--espacamento-xs);
 }
 
-/* Estilizando o botão para se parecer com o resto do menu */
-header nav ul .btn-cta {
+.hero-texto {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-texto .tagline {
+  font-family: var(--fonte-mono);
+  display: block;
+  margin-bottom: var(--espacamento-s);
+}
+
+.hero-texto h2 {
+  font-size: var(--tamanho-titulo-1);
+  margin-bottom: var(--espacamento-l);
+}
+
+/* ESTILO DO HEADER PADRÃO (PÁGINAS INTERNAS) */
+.header-padrao {
+  background-color: var(--cor-primaria);
+  padding: var(--espacamento-m) var(--espacamento-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-padrao .header-logo h1 {
+  font-size: var(--tamanho-titulo-3);
+  color: var(--cor-texto-claro);
+}
+
+.header-padrao .header-nav ul {
+  display: flex;
+  gap: var(--espacamento-l);
+  align-items: center;
+}
+
+.header-padrao .header-nav a {
+  color: var(--cor-texto-claro);
+  font-size: var(--tamanho-texto-grande);
+}
+
+/* ESTILO DOS BOTÕES (COMPARTILHADO) */
+.btn-cta {
   background-color: var(--cor-acento);
   color: var(--cor-texto-claro);
-  border: none;
   padding: var(--espacamento-s) var(--espacamento-m);
   border-radius: 4px;
-  font-size: var(--tamanho-texto-normal);
   font-weight: bold;
-  cursor: pointer;
+}
+
+.btn-principal {
+  background-color: var(--cor-acento);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-s) var(--espacamento-l);
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: var(--tamanho-texto-grande);
+  display: inline-block;
+}
+
+/* REGRA PARA TELAS MAIORES */
+@media (min-width: 950px) {
+  .hero-imagem {
+    display: block;
+  }
+}
+
+/* ============================================= */
+/* SEÇÕES GLOBAIS                                */
+/* ============================================= */
+
+.secao {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+}
+
+/* ============================================= */
+/* SEÇÃO PILARES (INDEX.HTML)                    */
+/* ============================================= */
+
+.pilares-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-l);
+  flex-wrap: wrap;
+  margin-top: var(--espacamento-xl);
+}
+
+.pilar-card {
+  background-color: #ffffff;
+  padding: var(--espacamento-l) var(--espacamento-m);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
+}
+
+.pilar-card p {
+  font-size: var(--tamanho-texto-grande);
+  font-weight: bold;
+}
+
+/* ============================================= */
+/* SEÇÃO NÚMEROS (INDEX.HTML)                    */
+/* ============================================= */
+
+.secao-numeros {
+  background-color: var(--cor-secundaria); /* Usando o novo azul escuro */
+  color: var(--cor-texto-claro);
+  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.numeros-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espacamento-l);
+}
+
+.numero-item .numero {
+  font-size: var(--tamanho-titulo-1);
+  font-weight: bold;
+  color: var(--cor-aviso); /* Usando o novo amarelo para destaque */
+}
+
+/* ============================================= */
+/* SEÇÃO DEPOIMENTOS (INDEX.HTML)                */
+/* ============================================= */
+
+.depoimentos-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-l);
+  flex-wrap: wrap;
+  margin-top: var(--espacamento-xl);
+}
+
+.depoimento-card {
+  background-color: #ffffff;
+  padding: var(--espacamento-l);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 320px;
+}
+
+.depoimento-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--espacamento-m);
+}
+
+.depoimento-card blockquote {
+  font-style: italic;
+  font-size: var(--tamanho-texto-grande);
+  margin-bottom: var(--espacamento-m);
+  flex-grow: 1;
+}
+
+.depoimento-card cite {
+  font-weight: bold;
+}
+
+/* ============================================= */
+/* SEÇÃO NOTÍCIAS (INDEX.HTML)                   */
+/* ============================================= */
+
+.noticias-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-l);
+  flex-wrap: wrap;
+  margin-top: var(--espacamento-xl);
+}
+
+.noticia-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.noticia-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.noticia-card .noticia-conteudo {
+  padding: var(--espacamento-m);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.noticia-card h3 {
+  font-size: var(--tamanho-texto-grande);
+  margin-bottom: var(--espacamento-xs);
+  flex-grow: 1;
+}
+
+.noticia-card p {
+  font-size: 0.875rem;
+  color: #576574;
+  margin-bottom: var(--espacamento-m);
+}
+
+.noticia-card a {
+  font-weight: bold;
+  color: var(--cor-acento);
+  align-self: flex-start;
+}
+
+/* ============================================= */
+/* PÁGINA DE PROJETOS                            */
+/* ============================================= */
+
+.projetos-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-l);
+  flex-wrap: wrap;
+  margin-top: var(--espacamento-xl);
+}
+
+.projeto-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.projeto-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.projeto-card .projeto-conteudo {
+  padding: var(--espacamento-m);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.projeto-card h3 {
+  font-size: var(--tamanho-titulo-3);
+  margin-bottom: var(--espacamento-s);
+}
+
+.projeto-card p {
+  text-align: left;
+  margin-bottom: var(--espacamento-l);
+  flex-grow: 1;
+}
+
+.projeto-card .btn-principal {
+  align-self: flex-start;
 }
 
 /* ============================================= */
@@ -103,23 +393,23 @@ header nav ul .btn-cta {
 /* ============================================= */
 
 footer {
-  background-color: var(--cor-primaria);
+  background-color: var(--cor-secundaria); /* Usando o novo azul escuro */
   color: var(--cor-texto-claro);
   padding: var(--espacamento-xl);
   margin-top: var(--espacamento-xxl);
-  
+
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+  flex-wrap: wrap;
   gap: var(--espacamento-l);
 }
 
 footer address,
 footer .newsletter-form,
 footer .links-rapidos {
-  flex: 1; /* Faz com que cada coluna tente ocupar o mesmo espaço */
-  min-width: 250px; /* Largura mínima antes de quebrar a linha */
+  flex: 1;
+  min-width: 250px;
 }
 
 footer h2 {
@@ -133,6 +423,10 @@ footer p {
 
 footer address {
   font-style: normal;
+}
+
+footer .newsletter-form form {
+  max-width: 350px; /* Limita a largura do formulário */
 }
 
 footer .newsletter-form input {
@@ -161,215 +455,4 @@ footer .links-rapidos ul li {
 
 footer .links-rapidos a {
   color: var(--cor-texto-claro);
-}
-
-/* ============================================= */
-/* SEÇÕES GLOBAIS                                */
-/* ============================================= */
-
-.secao {
-  padding: var(--espacamento-xxl) var(--espacamento-xl);
-  text-align: center; /* Centraliza o texto dentro das seções */
-}
-
-/* ============================================= */
-/* SEÇÃO HERÓI (INDEX.HTML)                      */
-/* ============================================= */
-
-/* Use uma classe específica para a seção herói */
-.secao-heroi {
-  background-color: #ffffff; /* Um fundo branco para destacar */
-}
-
-.secao-heroi h2 {
-  font-size: var(--tamanho-titulo-1);
-  margin-bottom: var(--espacamento-m);
-}
-
-.secao-heroi p {
-  font-size: var(--tamanho-texto-grande);
-  margin-bottom: var(--espacamento-l);
-}
-
-.secao-heroi img {
-  max-width: 100%; /* Garante que a imagem seja responsiva */
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: var(--espacamento-l);
-}
-
-/* Estilo para o nosso novo botão principal */
-.btn-principal {
-  background-color: var(--cor-acento);
-  color: var(--cor-texto-claro);
-  padding: var(--espacamento-s) var(--espacamento-l);
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: var(--tamanho-texto-grande);
-  display: inline-block; /* Permite que o padding funcione corretamente */
-}
-
-/* ============================================= */
-/* SEÇÃO PILARES (INDEX.HTML)                    */
-/* ============================================= */
-
-.pilares-container {
-  display: flex; /* Ativa o Flexbox! */
-  justify-content: center; /* Centraliza os cards no container */
-  gap: var(--espacamento-l); /* Cria um espaço entre os cards */
-  flex-wrap: wrap; /* Permite que os cards quebrem a linha em telas pequenas */
-  margin-top: var(--espacamento-xl);
-}
-
-.pilar-card {
-  background-color: #ffffff; /* Fundo branco para o card */
-  padding: var(--espacamento-l) var(--espacamento-m);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidade */
-  width: 200px; /* Largura fixa para cada card */
-  text-align: center;
-}
-
-.pilar-card p {
-  font-size: var(--tamanho-texto-grande);
-  font-weight: bold;
-}
-
-/* ============================================= */
-/* SEÇÃO NÚMEROS (INDEX.HTML)                    */
-/* ============================================= */
-
-.secao-numeros {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
-  
-  /* Um truque para criar a forma ondulada como na inspiração */
-  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
-  padding-top: 100px; /* Mais padding para compensar o clip-path */
-  padding-bottom: 100px;
-}
-
-.numeros-container {
-  display: flex;
-  justify-content: space-around; /* Distribui os itens com espaço igual */
-  align-items: center;
-}
-
-.numero-item {
-  text-align: center;
-}
-
-.numero-item .numero {
-  font-size: var(--tamanho-titulo-1);
-  font-weight: bold;
-  color: var(--cor-sucesso); /* Usando nossa cor de 'sucesso' para destaque */
-}
-
-.numero-item .descricao {
-  font-size: var(--tamanho-texto-grande);
-}
-
-/* ============================================= */
-/* AJUSTES E REFINAMENTOS                        */
-/* ============================================= */
-
-/* Limita a largura do formulário da newsletter no rodapé */
-footer .newsletter-form form {
-  max-width: 350px; /* Você pode ajustar este valor */
-}
-
-/* ============================================= */
-/* SEÇÃO DEPOIMENTOS (INDEX.HTML)                */
-/* ============================================= */
-
-.depoimentos-container {
-  display: flex;
-  justify-content: center;
-  gap: var(--espacamento-l);
-  flex-wrap: wrap; /* Permite que os cards quebrem a linha */
-  margin-top: var(--espacamento-xl);
-}
-
-.depoimento-card {
-  background-color: #ffffff;
-  padding: var(--espacamento-l);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column; /* Organiza os itens do card em coluna */
-  align-items: center;
-  text-align: center;
-  max-width: 320px; /* Largura máxima para cada card */
-}
-
-.depoimento-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%; /* O truque para deixar a imagem redonda! */
-  object-fit: cover; /* Garante que a imagem não fique distorcida */
-  margin-bottom: var(--espacamento-m);
-}
-
-.depoimento-card blockquote {
-  font-style: italic;
-  font-size: var(--tamanho-texto-grande);
-  margin-bottom: var(--espacamento-m);
-  flex-grow: 1; /* Faz com que a citação ocupe o espaço disponível */
-}
-
-.depoimento-card cite {
-  font-weight: bold;
-}
-
-/* ============================================= */
-/* SEÇÃO NOTÍCIAS (INDEX.HTML)                   */
-/* ============================================= */
-
-.noticias-container {
-  display: flex;
-  justify-content: center;
-  gap: var(--espacamento-l);
-  flex-wrap: wrap;
-  margin-top: var(--espacamento-xl);
-}
-
-.noticia-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 350px;
-  overflow: hidden; /* Garante que a imagem respeite os cantos arredondados */
-  display: flex;
-  flex-direction: column;
-}
-
-.noticia-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.noticia-card .noticia-conteudo {
-  padding: var(--espacamento-m);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* Faz este container crescer e ocupar o espaço */
-}
-
-.noticia-card h3 {
-  font-size: var(--tamanho-texto-grande);
-  margin-bottom: var(--espacamento-xs);
-  flex-grow: 1; /* Empurra o parágrafo e o link para baixo */
-}
-
-.noticia-card p {
-  font-size: 0.875rem; /* 14px */
-  color: #576574;
-  margin-bottom: var(--espacamento-m);
-}
-
-.noticia-card a {
-  font-weight: bold;
-  color: var(--cor-acento);
-  align-self: flex-start; /* Alinha o link à esquerda */
 }
