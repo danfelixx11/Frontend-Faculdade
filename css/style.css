@@ -105,13 +105,21 @@ header nav ul .btn-cta {
 footer {
   background-color: var(--cor-primaria);
   color: var(--cor-texto-claro);
-  padding: var(--espacamento-xl) var(--espacamento-xl);
-  margin-top: var(--espacamento-xxl); /* Adiciona um espaço antes do rodapé */
-
-  /* Usando Flexbox para alinhar as seções do rodapé */
+  padding: var(--espacamento-xl);
+  margin-top: var(--espacamento-xxl);
+  
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Alinha os itens no topo */
+  align-items: flex-start;
+  flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+  gap: var(--espacamento-l);
+}
+
+footer address,
+footer .newsletter-form,
+footer .links-rapidos {
+  flex: 1; /* Faz com que cada coluna tente ocupar o mesmo espaço */
+  min-width: 250px; /* Largura mínima antes de quebrar a linha */
 }
 
 footer h2 {
@@ -123,31 +131,36 @@ footer p {
   margin-bottom: var(--espacamento-xs);
 }
 
-/* Estilizando a seção de contato */
 footer address {
   font-style: normal;
-  max-width: 30%;
 }
 
-/* Estilizando a seção da Newsletter */
 footer .newsletter-form input {
   display: block;
-  margin-bottom: var(--espacamento-s);
+  width: 100%;
   padding: var(--espacamento-s);
+  margin-bottom: var(--espacamento-s);
   border: none;
   border-radius: 4px;
-  width: 100%;
 }
 
 footer .newsletter-form button {
+  width: 100%;
+  padding: var(--espacamento-s);
+  border: none;
+  border-radius: 4px;
   background-color: var(--cor-acento);
   color: var(--cor-texto-claro);
-  border: none;
-  padding: var(--espacamento-s);
-  border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  width: 100%;
+}
+
+footer .links-rapidos ul li {
+  margin-bottom: var(--espacamento-xs);
+}
+
+footer .links-rapidos a {
+  color: var(--cor-texto-claro);
 }
 
 /* ============================================= */
