@@ -399,3 +399,62 @@ footer .links-rapidos a:hover, footer .redes-sociais a:hover { opacity: 0.7; }
   border-color: var(--cor-acento);
   box-shadow: 0 0 0 3px rgba(27, 156, 252, 0.25);
 }
+
+/* ============================================= */
+/* MODIFICADOR DE BOTÃO                          */
+/* ============================================= */
+
+.btn-outline {
+  background-color: transparent; /* Fundo transparente */
+  color: var(--cor-texto-claro); /* Texto branco */
+  border: 2px solid var(--cor-texto-claro); /* Borda branca */
+}
+
+.btn-outline:hover {
+  background-color: var(--cor-texto-claro); /* Fundo se torna branco no hover */
+  color: var(--cor-primaria); /* Texto se torna azul escuro */
+}
+
+/* ============================================= */
+/* PÁGINA DE CADASTRO - SEÇÃO INTRODUÇÃO         */
+/* ============================================= */
+
+.secao-introducao-form {
+  padding: 0; /* Remove o padding padrão para permitir a largura total */
+  color: var(--cor-texto-claro);
+  position: relative;
+  
+  /* A Mágica da Imagem de Fundo "Azulada" */
+  background-image: linear-gradient(rgba(10, 61, 98, 0.9), rgba(10, 61, 98, 0.95)),
+    url("https://images.unsplash.com/photo-1557804506-669a67965ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzEyMHwwfDF8c2VhcmNofDEzfHxjb2xsYWJvcmF0aW9ufGVufDB8fHx8MTcyODk3MTQzN3ww&ixlib=rb-4.0.3&q=80&w=1080");
+  background-size: cover;
+  background-position: center;
+}
+
+/* O container interno recebe o padding e controla a largura */
+.secao-introducao-form .introducao-conteudo {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--espacamento-xxl) var(--espacamento-xl); /* Aplica o espaçamento aqui */
+}
+
+/* Garante que o título seja branco */
+.secao-introducao-form h2 {
+  color: var(--cor-texto-claro);
+  margin-bottom: var(--espacamento-m);
+}
+
+/* ============================================= */
+/* AJUSTES TIPOGRÁFICOS                          */
+/* ============================================= */
+
+/* Classe para dar a aparência de um título principal a qualquer elemento */
+.titulo-grande {
+  font-size: var(--tamanho-titulo-1); /* Usa a variável de 48px que definimos! */
+  font-weight: 900; /* Deixa a fonte mais grossa e impactante */
+}
+
+/* Classe para dar a aparência de um parágrafo de destaque */
+.paragrafo-grande {
+  font-size: var(--tamanho-texto-grande); /* Usa a variável de 18px */
+}
