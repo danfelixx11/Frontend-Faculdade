@@ -268,3 +268,12 @@ footer .links-rapidos a {
 .numero-item .descricao {
   font-size: var(--tamanho-texto-grande);
 }
+
+/* ============================================= */
+/* AJUSTES E REFINAMENTOS                        */
+/* ============================================= */
+
+/* Limita a largura do formulário da newsletter no rodapé */
+footer .newsletter-form form {
+  max-width: 350px; /* Você pode ajustar este valor */
+}
