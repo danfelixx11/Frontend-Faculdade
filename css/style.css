@@ -277,3 +277,99 @@ footer .links-rapidos a {
 footer .newsletter-form form {
   max-width: 350px; /* Você pode ajustar este valor */
 }
+
+/* ============================================= */
+/* SEÇÃO DEPOIMENTOS (INDEX.HTML)                */
+/* ============================================= */
+
+.depoimentos-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-l);
+  flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+  margin-top: var(--espacamento-xl);
+}
+
+.depoimento-card {
+  background-color: #ffffff;
+  padding: var(--espacamento-l);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Organiza os itens do card em coluna */
+  align-items: center;
+  text-align: center;
+  max-width: 320px; /* Largura máxima para cada card */
+}
+
+.depoimento-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* O truque para deixar a imagem redonda! */
+  object-fit: cover; /* Garante que a imagem não fique distorcida */
+  margin-bottom: var(--espacamento-m);
+}
+
+.depoimento-card blockquote {
+  font-style: italic;
+  font-size: var(--tamanho-texto-grande);
+  margin-bottom: var(--espacamento-m);
+  flex-grow: 1; /* Faz com que a citação ocupe o espaço disponível */
+}
+
+.depoimento-card cite {
+  font-weight: bold;
+}
+
+/* ============================================= */
+/* SEÇÃO NOTÍCIAS (INDEX.HTML)                   */
+/* ============================================= */
+
+.noticias-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-l);
+  flex-wrap: wrap;
+  margin-top: var(--espacamento-xl);
+}
+
+.noticia-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  overflow: hidden; /* Garante que a imagem respeite os cantos arredondados */
+  display: flex;
+  flex-direction: column;
+}
+
+.noticia-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.noticia-card .noticia-conteudo {
+  padding: var(--espacamento-m);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Faz este container crescer e ocupar o espaço */
+}
+
+.noticia-card h3 {
+  font-size: var(--tamanho-texto-grande);
+  margin-bottom: var(--espacamento-xs);
+  flex-grow: 1; /* Empurra o parágrafo e o link para baixo */
+}
+
+.noticia-card p {
+  font-size: 0.875rem; /* 14px */
+  color: #576574;
+  margin-bottom: var(--espacamento-m);
+}
+
+.noticia-card a {
+  font-weight: bold;
+  color: var(--cor-acento);
+  align-self: flex-start; /* Alinha o link à esquerda */
+}
