@@ -458,3 +458,25 @@ footer .links-rapidos a:hover, footer .redes-sociais a:hover { opacity: 0.7; }
 .paragrafo-grande {
   font-size: var(--tamanho-texto-grande); /* Usa a variável de 18px */
 }
+
+/* ============================================= */
+/* PÁGINA DE CADASTRO - VALIDAÇÃO                */
+/* ============================================= */
+
+/* Estilo para o container do campo quando houver erro */
+.campo-formulario.erro .campo-rotulo {
+  color: #dc3545; /* Vermelho para o label */
+}
+
+.campo-formulario.erro input {
+  border-color: #dc3545; /* Borda vermelha */
+  background-color: #f8d7da; /* Fundo levemente avermelhado */
+}
+
+/* Estilo para a mensagem de erro que será adicionada via JS */
+.mensagem-erro {
+  color: #dc3545;
+  font-size: 0.875rem; /* 14px */
+  margin-top: var(--espacamento-xs);
+  display: block;
+}
