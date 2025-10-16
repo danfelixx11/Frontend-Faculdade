@@ -92,6 +92,31 @@ footer {
   background-color: var(--cor-acento);
 }
 
+.btn-cta:hover,
+.btn-principal:hover {
+  background-color: var(--cor-acento);
+}
+
+/* ============================================= */
+/* LOGO (REFINADO E CORRIGIDO)                   */
+/* ============================================= */
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-s);
+  text-decoration: none;
+}
+
+/* Regra específica para o texto do logo */
+.logo a span {
+  color: var(--cor-texto-claro);
+  font-size: var(--tamanho-titulo-3);
+  font-weight: bold;
+}
+
+/* --- Navegação (com Efeito Hover) --- */
+
 /* --- Navegação (com Efeito Hover) --- */
 .hero-nav ul,
 .header-padrao .header-nav ul {
@@ -479,4 +504,190 @@ footer .links-rapidos a:hover, footer .redes-sociais a:hover { opacity: 0.7; }
   font-size: 0.875rem; /* 14px */
   margin-top: var(--espacamento-xs);
   display: block;
+}
+
+/* ============================================= */
+/* COMPONENTE DE ACESSIBILIDADE (REFINADO)       */
+/* ============================================= */
+.acessibilidade-container {
+  position: fixed;
+  top: 150px;
+  left: 20px;
+  z-index: 999;
+}
+#btn-acessibilidade {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+#btn-acessibilidade:hover {
+  background-color: var(--cor-secundaria);
+}
+.acessibilidade-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: var(--espacamento-s);
+  width: 200px;
+}
+.acessibilidade-menu.ativo { display: block; }
+.acessibilidade-menu ul li { margin-bottom: var(--espacamento-xs); }
+.acessibilidade-menu button { width: 100%; background: none; border: none; text-align: left; padding: var(--espacamento-s); cursor: pointer; border-radius: 4px; }
+.acessibilidade-menu button:hover { background-color: var(--cor-fundo); }
+
+/* ============================================= */
+/* BOTÃO VOLTAR AO TOPO (REFINADO)               */
+/* ============================================= */
+#btn-voltar-topo {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 998;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+#btn-voltar-topo:hover { background-color: var(--cor-acento); }
+#btn-voltar-topo.visivel { display: flex; }
+
+/* ============================================= */
+/* FUNCIONALIDADES DE ACESSIBILIDADE (REFINADO)  */
+/* ============================================= */
+
+/* Classe para o modo de Alto Contraste */
+body.alto-contraste {
+  --cor-primaria: #000000;
+  --cor-secundaria: #ffff00; /* Amarelo para destaques como botões */
+  --cor-acento: #00ffff; /* Ciano para hovers */
+  --cor-fundo: #000000;
+  --cor-texto: #ffffff;
+  --cor-texto-claro: #000000;
+  --cor-aviso: #ffff00;
+}
+body.alto-contraste .pilar-card,
+body.alto-contraste .depoimento-card,
+body.alto-contraste .noticia-card,
+body.alto-contraste .projeto-card,
+body.alto-contraste .formulario-cadastro {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #ffff00;
+}
+body.alto-contraste .pilar-card h3,
+body.alto-contraste .formulario-cadastro legend { color: #ffff00; }
+body.alto-contraste .noticia-card p { color: #cccccc; }
+
+/* CORREÇÕES VISUAIS PARA O MODO DE ALTO CONTRASTE */
+body.alto-contraste .hero-header-overlay,
+body.alto-contraste .secao-numeros,
+body.alto-contraste .cta-mentor,
+body.alto-contraste .cta-doacao { background-image: none; }
+
+body.alto-contraste .logo span,
+body.alto-contraste .hero-nav a,
+body.alto-contraste .header-padrao .header-nav a { color: var(--cor-texto); }
+
+body.alto-contraste .logo svg path { stroke: var(--cor-secundaria); }
+body.alto-contraste .pilar-icone svg,
+body.alto-contraste .redes-sociais svg { fill: var(--cor-secundaria); }
+
+body.alto-contraste .btn-cta,
+body.alto-contraste .btn-principal {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    border: 1px solid var(--cor-secundaria);
+}
+body.alto-contraste .btn-cta:hover,
+body.alto-contraste .btn-principal:hover { background-color: var(--cor-acento); color: var(--cor-texto-claro); }
+
+body.alto-contraste .btn-outline {
+    background-color: transparent;
+    border-color: var(--cor-secundaria);
+    color: var(--cor-secundaria);
+}
+body.alto-contraste .btn-outline:hover { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); }
+
+body.alto-contraste #btn-acessibilidade,
+body.alto-contraste #btn-voltar-topo {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+}
+body.alto-contraste #btn-acessibilidade svg,
+body.alto-contraste #btn-voltar-topo svg {
+  fill: var(--cor-texto-claro);
+  stroke: var(--cor-texto-claro);
+}
+
+body.alto-contraste footer { background-image: none; }
+
+/* ============================================= */
+/* CORREÇÕES FINAIS PARA O MODO DE ALTO CONTRASTE*/
+/* ============================================= */
+
+/* Garante que o texto dos botões principais seja legível (preto) */
+body.alto-contraste .btn-principal,
+body.alto-contraste .btn-cta {
+  color: var(--cor-texto-claro); /* --cor-texto-claro é #000000 neste modo */
+  background-color: var(--cor-secundaria);
+}
+
+/* Garante que o texto do hover do botão seja legível */
+body.alto-contraste .btn-principal:hover,
+body.alto-contraste .btn-cta:hover {
+  color: var(--cor-texto-claro);
+}
+
+/* Garante que os ícones dos pilares fiquem visíveis (amarelos) */
+body.alto-contraste .pilar-icone svg path {
+  stroke: var(--cor-secundaria); /* Usa a cor de destaque amarela */
+}
+
+/* Garante que os textos do footer fiquem visíveis (brancos) */
+body.alto-contraste footer,
+body.alto-contraste footer a,
+body.alto-contraste footer h2 {
+  color: var(--cor-texto); /* --cor-texto é #ffffff neste modo */
+}
+
+/* Garante que o título "Fique por Dentro" fique visível (branco) */
+body.alto-contraste .secao-escura h2 {
+    color: var(--cor-texto);
+}
+
+/* Garante que os textos nas seções de CTA da página de projetos fiquem visíveis (brancos) */
+body.alto-contraste .cta-mentor h2,
+body.alto-contraste .cta-mentor p,
+body.alto-contraste .cta-doacao h2,
+body.alto-contraste .cta-doacao p {
+    color: var(--cor-texto);
+}
+
+/* Garante que o logo permaneça visível */
+body.alto-contraste .logo span {
+    color: var(--cor-texto);
+}
+body.alto-contraste .logo svg path {
+    stroke: var(--cor-secundaria);
 }
