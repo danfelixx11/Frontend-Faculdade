@@ -692,6 +692,11 @@ body.alto-contraste .logo svg path {
     stroke: var(--cor-secundaria);
 }
 
+body.alto-contraste .secao-sobre blockquote {
+  color: var(--cor-secundaria); /* --cor-secundaria é #ffff00 neste modo */
+  border-left-color: var(--cor-secundaria);
+}
+
 /* ============================================= */
 /* SEÇÃO MISSÃO (INDEX.HTML)                     */
 /* ============================================= */
@@ -762,4 +767,41 @@ body.alto-contraste .logo svg path {
   font-size: var(--tamanho-texto-grande);
   line-height: 1.7;
   text-align: justify; /* Alinhamento justificado para um visual de "bloco de texto" */
+}
+
+/* ============================================= */
+/* REFINAMENTO DA SEÇÃO SOBRE NÓS                */
+/* ============================================= */
+
+.secao-sobre {
+  position: relative; /* Necessário para posicionar o elemento gráfico */
+  overflow: hidden; /* Garante que o elemento não vaze */
+}
+
+.secao-sobre::before {
+  content: '</>';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--fonte-mono);
+  font-size: 30rem; /* Tamanho gigante */
+  font-weight: 900;
+  color: var(--cor-primaria);
+  opacity: 0.05; /* Extremamente sutil */
+  z-index: 0;
+}
+
+.secao-sobre .sobre-conteudo {
+  position: relative; /* Garante que o texto fique por cima */
+  z-index: 1;
+}
+
+.secao-sobre blockquote {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-primaria);
+  border-left: 4px solid var(--cor-secundaria);
+  padding-left: var(--espacamento-m);
+  margin: var(--espacamento-l) 0;
 }
