@@ -1,11 +1,20 @@
 // ============================================= //
-// LÓGICA DE ACESSIBILIDADE                      //
+// CAPTURA DOS ELEMENTOS GLOBAIS                 //
 // ============================================= //
+const html = document.documentElement;
 const btnAcessibilidade = document.querySelector("#btn-acessibilidade");
 const menuAcessibilidade = document.querySelector("#menu-acessibilidade");
-const html = document.documentElement;
+const btnVoltarTopo = document.querySelector("#btn-voltar-topo");
+const form = document.querySelector(".formulario-cadastro");
+const secaoNumeros = document.querySelector('.secao-numeros');
 
-// Função auto-executável para aplicar o estado de alto contraste ao carregar a página
+console.log("Script carregado!");
+
+// ============================================= //
+// LÓGICA DE ACESSIBILIDADE                      //
+// ============================================= //
+
+// Aplica estado de alto contraste salvo ao carregar
 (function aplicarEstadoAcessibilidade() {
   const modoContrasteSalvo = localStorage.getItem('alto-contraste');
   if (modoContrasteSalvo === 'true') {
@@ -25,14 +34,10 @@ function diminuirFonte() {
 
 function modoAltoContraste() {
   document.body.classList.toggle('alto-contraste');
-  // Salva a preferência do usuário no localStorage
-  if (document.body.classList.contains('alto-contraste')) {
-    localStorage.setItem('alto-contraste', 'true');
-  } else {
-    localStorage.setItem('alto-contraste', 'false');
-  }
+  localStorage.setItem('alto-contraste', document.body.classList.contains('alto-contraste'));
 }
 
+// CORREÇÃO: Toda a lógica dos botões do menu foi movida PARA DENTRO deste IF
 if (btnAcessibilidade && menuAcessibilidade) {
   btnAcessibilidade.addEventListener('click', () => {
     menuAcessibilidade.classList.toggle('ativo');
@@ -52,7 +57,6 @@ if (btnAcessibilidade && menuAcessibilidade) {
 // ============================================= //
 // LÓGICA DO BOTÃO "VOLTAR AO TOPO"              //
 // ============================================= //
-const btnVoltarTopo = document.querySelector("#btn-voltar-topo");
 if (btnVoltarTopo) {
   window.addEventListener('scroll', () => {
     btnVoltarTopo.classList.toggle('visivel', window.scrollY > 400);
@@ -63,13 +67,10 @@ if (btnVoltarTopo) {
   });
 }
 
-
 // ============================================= //
-// LÓGICA DO FORMULÁRIO (SÓ RODA NA PÁGINA DE CADASTRO) //
+// LÓGICA DO FORMULÁRIO (SÓ NA PÁGINA DE CADASTRO)//
 // ============================================= //
-const form = document.querySelector(".formulario-cadastro");
 if (form) {
-  // O código só entra aqui se o formulário existir na página
   const nomeInput = document.querySelector("#nome");
   const emailInput = document.querySelector("#email");
   const cpfInput = document.querySelector("#cpf");
@@ -81,12 +82,10 @@ if (form) {
   const cidadeInput = document.querySelector("#cidade");
   const estadoInput = document.querySelector("#estado");
 
-  // MÁSCARAS DE INPUT
   const cpfMask = IMask(cpfInput, { mask: '000.000.000-00' });
   const telefoneMask = IMask(telefoneInput, { mask: [{ mask: '(00) 0000-0000' }, { mask: '(00) 00000-0000' }] });
   const cepMask = IMask(cepInput, { mask: '00000-000' });
 
-  // FUNÇÕES DE UI E VALIDAÇÃO
   function mostraErro(input, mensagem) {
     const campoContainer = input.parentElement;
     const mensagemExistente = campoContainer.querySelector(".mensagem-erro");
@@ -122,44 +121,41 @@ if (form) {
   }
 
   function validaEmail() {
+    if (!validaCampoVazio(emailInput, "E-mail")) return false;
     const valorEmail = emailInput.value.trim();
-    if (valorEmail === "") {
-      mostraErro(emailInput, "O campo de e-mail não pode ficar vazio."); return false;
-    } else if (!isEmailValido(valorEmail)) {
+    if (!isEmailValido(valorEmail)) {
       mostraErro(emailInput, "Por favor, insira um e-mail válido."); return false;
     }
-    limpaErro(emailInput);
-    return true;
+    limpaErro(emailInput); return true;
   }
-  
+
   function validaCPF() {
+    if (!validaCampoVazio(cpfInput, "CPF")) return false;
     const cpfLimpo = cpfInput.value.replace(/\D/g, '');
     if (cpfLimpo.length !== 11) {
-        mostraErro(cpfInput, "O CPF deve conter 11 dígitos."); return false;
+      mostraErro(cpfInput, "O CPF deve conter 11 dígitos."); return false;
     }
-    limpaErro(cpfInput);
-    return true;
+    limpaErro(cpfInput); return true;
   }
 
   function validaTelefone() {
+    if (!validaCampoVazio(telefoneInput, "Telefone")) return false;
     const telefoneLimpo = telefoneInput.value.replace(/\D/g, '');
-    if(telefoneLimpo.length < 10) {
-        mostraErro(telefoneInput, "O telefone deve conter no mínimo 10 dígitos."); return false;
+    if (telefoneLimpo.length < 10) {
+      mostraErro(telefoneInput, "O telefone deve conter no mínimo 10 dígitos."); return false;
     }
-    limpaErro(telefoneInput);
-    return true;
+    limpaErro(telefoneInput); return true;
   }
 
   function validaCEP() {
-      const cepLimpo = cepInput.value.replace(/\D/g, '');
-      if(cepLimpo.length !== 8) {
-          mostraErro(cepInput, "O CEP deve conter 8 dígitos."); return false;
-      }
-      limpaErro(cepInput);
-      return true;
+    if (!validaCampoVazio(cepInput, "CEP")) return false;
+    const cepLimpo = cepInput.value.replace(/\D/g, '');
+    if (cepLimpo.length !== 8) {
+      mostraErro(cepInput, "O CEP deve conter 8 dígitos."); return false;
+    }
+    limpaErro(cepInput); return true;
   }
 
-  // LÓGICA DA API VIACEP
   cepInput.addEventListener('blur', async () => {
     const cepLimpo = cepInput.value.replace(/\D/g, '');
     if (cepLimpo.length !== 8) return;
@@ -174,7 +170,6 @@ if (form) {
     } catch (error) { mostraErro(cepInput, "Não foi possível buscar o CEP."); }
   });
 
-  // OUVINTE DE EVENTO DO FORMULÁRIO
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const checks = [
@@ -190,53 +185,39 @@ if (form) {
       validaCampoVazio(estadoInput, "Estado")
     ];
     const formularioValido = checks.every(check => check === true);
-    if (formularioValido) { console.log("Formulário válido!"); } 
+    if (formularioValido) { console.log("Formulário válido!"); }
     else { console.log("Formulário inválido."); }
   });
 }
 
 // ============================================= //
-// LÓGICA DA ANIMAÇÃO DE CONTAGEM                //
+// LÓGICA DA ANIMAÇÃO DE CONTAGEM (SÓ NA INDEX)   //
 // ============================================= //
-
-const secaoNumeros = document.querySelector('.secao-numeros');
-
-// Função que executa a animação de contagem
-const animarNumeros = () => {
-  const contadores = document.querySelectorAll('.numero-item .numero');
-  const duracao = 2000; // Animação dura 2 segundos
-
-  contadores.forEach(contador => {
-    const numeroFinal = parseInt(contador.parentElement.dataset.numero);
-    let contadorAtual = 0;
-    
-    // Calcula o quanto incrementar a cada passo para a animação ser suave
-    const incremento = numeroFinal / (duracao / 16); // ~60fps
-
-    const timer = setInterval(() => {
-      contadorAtual += incremento;
-      if (contadorAtual >= numeroFinal) {
-        contador.innerText = `+${numeroFinal}`;
-        clearInterval(timer); // Para a animação
-      } else {
-        contador.innerText = `+${Math.ceil(contadorAtual)}`;
-      }
-    }, 16); // Roda a cada ~16ms
-  });
-};
-
-// O "vigia" que observa quando a seção entra na tela
-const observer = new IntersectionObserver((entries, observer) => {
-  // entries[0] é a nossa .secao-numeros
-  if (entries[0].isIntersecting) {
-    animarNumeros(); // Dispara a animação
-    observer.unobserve(secaoNumeros); // Para de observar, para a animação rodar só uma vez
-  }
-}, {
-  threshold: 0.5 // Dispara quando 50% da seção estiver visível
-});
-
-// Inicia a observação
 if (secaoNumeros) {
+  const animarNumeros = () => {
+    const contadores = document.querySelectorAll('.numero-item .numero');
+    const duracao = 2000;
+    contadores.forEach(contador => {
+      const numeroFinal = parseInt(contador.parentElement.dataset.numero);
+      let contadorAtual = 0;
+      const incremento = numeroFinal / (duracao / 16);
+      const timer = setInterval(() => {
+        contadorAtual += incremento;
+        if (contadorAtual >= numeroFinal) {
+          contador.innerText = `+${numeroFinal}`;
+          clearInterval(timer);
+        } else {
+          contador.innerText = `+${Math.ceil(contadorAtual)}`;
+        }
+      }, 16);
+    });
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    if (entries[0].isIntersecting) {
+      animarNumeros();
+      observer.unobserve(secaoNumeros);
+    }
+  }, { threshold: 0.5 });
   observer.observe(secaoNumeros);
 }

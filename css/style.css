@@ -1,146 +1,89 @@
 /* ============================================= */
-/* DESIGN SYSTEM (Versão 5.0 - Organizado)       */
+/* DESIGN SYSTEM (Versão 8.0 - Final Corrigido)  */
 /* ============================================= */
-
 :root {
-  --cor-primaria: #0a3d62;
-  --cor-secundaria: #0D6EFD;
-  --cor-acento: #1B9CFC;
-  --cor-fundo: #f8f9fa;
-  --cor-texto: #212529;
-  --cor-texto-claro: #ffffff;
-  --cor-sucesso: #198754;
-  --cor-aviso: #ffc107;
-  --fonte-principal: "Roboto", sans-serif;
-  --fonte-mono: "Roboto Mono", monospace;
-  --tamanho-titulo-1: 3rem;
-  --tamanho-titulo-2: 2rem;
-  --tamanho-titulo-3: 1.5rem;
-  --tamanho-texto-grande: 1.125rem;
-  --tamanho-texto-normal: 1rem;
-  --espacamento-xs: 0.5rem;
-  --espacamento-s: 1rem;
-  --espacamento-m: 1.5rem;
-  --espacamento-l: 2rem;
-  --espacamento-xl: 3rem;
-  --espacamento-xxl: 4rem;
+  --cor-primaria: #0a3d62; --cor-secundaria: #0D6EFD; --cor-acento: #1B9CFC; --cor-fundo: #f8f9fa; --cor-texto: #212529; --cor-texto-claro: #ffffff; --cor-sucesso: #198754; --cor-aviso: #ffc107;
+  --fonte-principal: "Roboto", sans-serif; --fonte-mono: "Roboto Mono", monospace;
+  --tamanho-titulo-1: 3rem; --tamanho-titulo-2: 2rem; --tamanho-titulo-3: 1.5rem; --tamanho-texto-grande: 1.125rem; --tamanho-texto-normal: 1rem;
+  --espacamento-xs: 0.5rem; --espacamento-s: 1rem; --espacamento-m: 1.5rem; --espacamento-l: 2rem; --espacamento-xl: 3rem; --espacamento-xxl: 4rem;
 }
 
 /* ============================================= */
 /* RESET BÁSICO E ESTILOS GLOBAIS                */
 /* ============================================= */
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: var(--fonte-principal); background-color: var(--cor-fundo); color: var(--cor-texto); }
 a { text-decoration: none; color: var(--cor-acento); }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
+html { scroll-behavior: smooth; } /* Habilita rolagem suave */
 
 /* ============================================= */
 /* LAYOUT PRINCIPAL                              */
 /* ============================================= */
-
-.secao {
-  padding: var(--espacamento-xxl) var(--espacamento-xl);
-  text-align: center;
-}
-
-.secao-escura {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
-}
-
-.secao-escura h2 {
-  color: var(--cor-texto-claro);
-}
+.secao { padding: var(--espacamento-xxl) var(--espacamento-xl); text-align: center; }
+.secao h2 { margin-bottom: var(--espacamento-m); }
+.secao-escura { background-color: var(--cor-primaria); color: var(--cor-texto-claro); }
+.secao-escura h2 { color: var(--cor-texto-claro); }
 
 footer {
-  position: relative;
-  color: var(--cor-texto-claro);
-  padding: var(--espacamento-xl);
+  position: relative; color: var(--cor-texto-claro); padding: var(--espacamento-xl);
   background-color: var(--cor-primaria);
   background-image: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.1) 0%, transparent 70%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: var(--espacamento-l);
+  display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--espacamento-l);
 }
 
 /* ============================================= */
 /* COMPONENTES REUTILIZÁVEIS                     */
 /* ============================================= */
 
+/* --- Logo --- */
+.logo a { display: flex; align-items: center; gap: var(--espacamento-s); text-decoration: none; }
+.logo a span { color: var(--cor-texto-claro); font-size: var(--tamanho-titulo-3); font-weight: bold; }
+
+/* --- Navegação --- */
+.hero-nav ul, .header-padrao .header-nav ul { display: flex; gap: var(--espacamento-l); align-items: center; }
+.hero-nav a, .header-padrao .header-nav a { color: var(--cor-texto-claro); font-size: var(--tamanho-texto-grande); padding: var(--espacamento-xs) var(--espacamento-s); border-radius: 999px; transition: background-color 0.3s ease; }
+.hero-nav a:not(.btn-cta):hover, .header-padrao .header-nav a:not(.btn-cta):hover { background-color: rgba(255, 255, 255, 0.1); }
+
 /* --- Botões --- */
-.btn-cta,
-.btn-principal {
-  background-color: var(--cor-secundaria);
-  color: var(--cor-texto-claro);
-  padding: var(--espacamento-s) var(--espacamento-l);
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: var(--tamanho-texto-grande);
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: center;
-}
+.btn-cta, .btn-principal { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); padding: var(--espacamento-s) var(--espacamento-l); border-radius: 4px; font-weight: bold; font-size: var(--tamanho-texto-grande); display: inline-block; border: none; cursor: pointer; transition: background-color 0.3s ease; text-align: center; }
+.btn-cta:hover, .btn-principal:hover { background-color: var(--cor-acento); }
+.btn-outline { background-color: transparent; color: var(--cor-texto-claro); border: 2px solid var(--cor-texto-claro); }
+.btn-outline:hover { background-color: var(--cor-texto-claro); color: var(--cor-primaria); }
 
-.btn-cta:hover,
-.btn-principal:hover {
-  background-color: var(--cor-acento);
-}
+/* --- Container de Cards --- */
+.card-container { display: flex; justify-content: center; gap: var(--espacamento-l); flex-wrap: wrap; margin-top: var(--espacamento-xl); }
 
-.btn-cta:hover,
-.btn-principal:hover {
-  background-color: var(--cor-acento);
-}
+/* --- Base dos Cards --- */
+.card { background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; text-align: center; }
+.card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 
-/* ============================================= */
-/* LOGO (REFINADO E CORRIGIDO)                   */
-/* ============================================= */
+/* --- Modificadores de Card --- */
+.card--pilar { padding: var(--espacamento-l) var(--espacamento-m); width: 250px; align-items: center; gap: var(--espacamento-s); }
+.pilar-icone { background-color: var(--cor-primaria); color: var(--cor-texto-claro); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+.pilar-icone svg { width: 32px; height: 32px; }
+.card--pilar h3 { font-size: var(--tamanho-titulo-3); color: var(--cor-primaria); }
+.card--pilar p { font-size: var(--tamanho-texto-normal); line-height: 1.5; }
 
-.logo a {
-  display: flex;
-  align-items: center;
-  gap: var(--espacamento-s);
-  text-decoration: none;
-}
+.card--depoimento { padding: var(--espacamento-l); max-width: 320px; align-items: center; }
+.card--depoimento img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto var(--espacamento-m); }
+.card--depoimento blockquote { font-style: italic; font-size: var(--tamanho-texto-grande); margin-bottom: var(--espacamento-m); flex-grow: 1; }
+.card--depoimento cite { font-weight: bold; }
 
-/* Regra específica para o texto do logo */
-.logo a span {
-  color: var(--cor-texto-claro);
-  font-size: var(--tamanho-titulo-3);
-  font-weight: bold;
-}
+.card--noticia, .card--projeto { max-width: 350px; overflow: hidden; text-align: left; }
+.card--noticia img, .card--projeto img { width: 100%; object-fit: cover; }
+.card--noticia img { height: 200px; }
+.card--projeto img { height: 220px; }
+.card__conteudo { padding: var(--espacamento-m); display: flex; flex-direction: column; flex-grow: 1; }
+.card--noticia h3 { font-size: var(--tamanho-texto-grande); }
+.card--projeto h3 { font-size: var(--tamanho-titulo-3); }
+.card--noticia h3, .card--projeto h3 { margin-bottom: var(--espacamento-xs); flex-grow: 1; }
+.card--noticia p { font-size: 0.875rem; color: #576574; margin-bottom: var(--espacamento-m); }
+.card--projeto p { line-height: 1.6; margin-bottom: var(--espacamento-l); flex-grow: 1; }
+.card--noticia a, .card--projeto a { font-weight: bold; align-self: flex-start; }
 
-/* --- Navegação (com Efeito Hover) --- */
-
-/* --- Navegação (com Efeito Hover) --- */
-.hero-nav ul,
-.header-padrao .header-nav ul {
-  display: flex;
-  gap: var(--espacamento-l);
-  align-items: center;
-}
-
-.hero-nav a,
-.header-padrao .header-nav a {
-  color: var(--cor-texto-claro);
-  font-size: var(--tamanho-texto-grande);
-  padding: var(--espacamento-xs) var(--espacamento-s);
-  border-radius: 999px; /* Cria o formato de pílula */
-  transition: background-color 0.3s ease; /* Transição suave */
-}
-
-/* EFEITO HOVER PARA O MENU (o que você pediu) */
-.hero-nav a:not(.btn-cta):hover,
-.header-padrao .header-nav a:not(.btn-cta):hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
-}
-
-/* --- Footer Components --- */
+/* --- Componentes do Footer --- */
 footer address, footer .newsletter-form, footer .links-rapidos { flex: 1; min-width: 280px; background-color: transparent; }
 footer h2 { font-size: var(--tamanho-titulo-3); margin-bottom: var(--espacamento-m); }
 footer p, footer a { line-height: 1.6; }
@@ -158,509 +101,99 @@ footer .links-rapidos a:hover, footer .redes-sociais a:hover { opacity: 0.7; }
 /* ============================================= */
 
 /* --- Hero Header (index.html) --- */
-.hero-header-overlay {
-  min-height: 90vh;
-  color: var(--cor-texto-claro);
-  padding: var(--espacamento-xl);
-  background-image: linear-gradient(rgba(0, 48, 119, 0.774), rgba(0, 30, 85, 0.788)), url("../images/hero-codigo-furuto.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.hero-logo h1 { font-size: var(--tamanho-titulo-3); }
-
-.hero-texto {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero-texto .tagline {
-  font-family: var(--fonte-mono);
-  display: block;
-  margin-bottom: var(--espacamento-s);
-  opacity: 0.8;
-}
-
-.hero-texto h2 {
-  font-size: var(--tamanho-titulo-1);
-  margin-bottom: var(--espacamento-l);
-  max-width: 600px;
-}
-
-.hero-texto .btn-principal {
-  align-self: flex-start;
-}
+.hero-header-overlay { min-height: 90vh; color: var(--cor-texto-claro); padding: var(--espacamento-xl); background-image: linear-gradient(rgba(0, 48, 119, 0.774), rgba(0, 30, 85, 0.788)), url("../images/hero-codigo-furuto.png"); background-size: cover; background-position: center; display: flex; flex-direction: column; }
+.hero-topo { display: flex; justify-content: space-between; align-items: center; }
+.hero-texto { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+.hero-texto .tagline { font-family: var(--fonte-mono); display: block; margin-bottom: var(--espacamento-s); opacity: 0.8; }
+.hero-texto h2 { font-size: var(--tamanho-titulo-1); margin-bottom: var(--espacamento-l); max-width: 600px; }
+.hero-texto .btn-principal { align-self: flex-start; }
 
 /* --- Header Padrão (páginas internas) --- */
-.header-padrao {
-  background-color: var(--cor-primaria);
-  padding: var(--espacamento-m) var(--espacamento-xl);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header-padrao .header-logo h1 { font-size: var(--tamanho-titulo-3);
-  color: var(--cor-texto-claro);
-}
+.header-padrao { background-color: var(--cor-primaria); padding: var(--espacamento-m) var(--espacamento-xl); display: flex; justify-content: space-between; align-items: center; }
 
-/* --- Seção Pilares (index.html) --- */
-.pilares-container { display: flex; justify-content: center; gap: var(--espacamento-l); flex-wrap: wrap; margin-top: var(--espacamento-xl); }
-.pilar-card { background-color: #ffffff; padding: var(--espacamento-l) var(--espacamento-m); border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); width: 250px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--espacamento-s); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.pilar-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
-.pilar-icone { background-color: var(--cor-primaria); color: var(--cor-texto-claro); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
-.pilar-icone svg { width: 32px; height: 32px; }
-.pilar-card h3 { font-size: var(--tamanho-titulo-3); color: var(--cor-primaria); }
-.pilar-card p { font-size: var(--tamanho-texto-normal); line-height: 1.5; }
+/* --- Seções 'Sobre' e 'Missão' --- */
+.secao-sobre { position: relative; overflow: hidden; }
+.secao-sobre::before { content: '</>'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--fonte-mono); font-size: 30rem; font-weight: 900; color: var(--cor-primaria); opacity: 0.05; z-index: 0; }
+.secao-sobre .sobre-conteudo { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+.secao-sobre p { font-size: var(--tamanho-texto-grande); line-height: 1.8; text-align: justify; }
+.secao-sobre blockquote { font-size: 1.5rem; font-weight: bold; color: var(--cor-primaria); border-left: 4px solid var(--cor-secundaria); padding-left: var(--espacamento-m); margin: var(--espacamento-l) 0; }
+.secao-missao { display: flex; align-items: center; gap: var(--espacamento-xxl); background-color: var(--cor-aviso); text-align: left; }
+.secao-missao .missao-conteudo { flex: 1; }
+.secao-missao h2, .secao-missao p { color: var(--cor-primaria); }
+.secao-missao .missao-imagem { flex: 1; min-height: 450px; border-radius: 8px; background-image: url('../images/missao.png'); background-size: cover; background-position: center; }
+.secao-missao p { font-size: var(--tamanho-texto-grande); line-height: 1.7; text-align: justify; }
 
-/* --- Seção Números (index.html) --- */
+/* --- Seção Números --- */
 .secao-numeros { background-color: var(--cor-primaria); color: var(--cor-texto-claro); clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%); padding: 100px var(--espacamento-xl); }
 .numeros-container { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: var(--espacamento-l); }
 .numero-item .numero { font-size: var(--tamanho-titulo-1); font-weight: bold; color: var(--cor-aviso); }
 
-/* --- Seção Depoimentos (index.html) --- */
-.depoimentos-container { display: flex; justify-content: center; gap: var(--espacamento-l); flex-wrap: wrap; margin-top: var(--espacamento-xl); }
-.depoimento-card { background-color: #ffffff; padding: var(--espacamento-l); border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; max-width: 320px; }
-.depoimento-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto var(--espacamento-m); }
-.depoimento-card blockquote { font-style: italic; font-size: var(--tamanho-texto-grande); margin-bottom: var(--espacamento-m); }
-.depoimento-card cite { font-weight: bold; }
+/* --- Seções CTA (Página de Projetos) --- */
+.secao-cta { color: var(--cor-texto-claro); position: relative; }
+.secao-cta .cta-conteudo { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+.secao-cta h2 { font-size: var(--tamanho-titulo-1); color: var(--cor-texto-claro); }
+.secao-cta p { font-size: var(--tamanho-texto-grande); line-height: 1.7; }
+.cta-mentor { background-image: linear-gradient(rgba(10, 61, 98, 0.9), rgba(10, 61, 98, 0.95)), url("https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzEyMHwwfDF8c2VhcmNofDR8fG1lbnRvcnxlbnwwfHx8fDE3Mjg5Njc5OTV8MA&ixlib=rb-4.0.3&q=80&w=1080"); background-size: cover; background-position: center; }
+.cta-doacao { background-image: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.95)), url("https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzEyMHwwfDF8c2VhcmNofDEyfHxhc3Npc3RhbmNlfGVufDB8fHx8MTcyODk2OTI4Nnww&ixlib=rb-4.0.3&q=80&w=1080"); background-size: cover; background-position: center; }
 
-/* --- Seção Notícias (index.html) --- */
-.noticias-container { display: flex; justify-content: center; gap: var(--espacamento-l); flex-wrap: wrap; margin-top: var(--espacamento-xl); }
-.noticia-card { background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 350px; overflow: hidden; display: flex; flex-direction: column; }
-.noticia-card img { width: 100%; height: 200px; object-fit: cover; }
-.noticia-card .noticia-conteudo { padding: var(--espacamento-m); display: flex; flex-direction: column; flex-grow: 1; text-align: left; }
-.secao-escura .noticia-conteudo { color: var(--cor-texto); }
-.secao-escura .noticia-conteudo a { color: var(--cor-acento); }
-.noticia-card h3 { font-size: var(--tamanho-texto-grande); margin-bottom: var(--espacamento-xs); flex-grow: 1; }
-.noticia-card p { font-size: 0.875rem; color: #576574; margin-bottom: var(--espacamento-m); }
-.noticia-card a { font-weight: bold; align-self: flex-start; }
-
-/* ============================================= */
-/* PÁGINA DE PROJETOS - REFINADO                 */
-/* ============================================= */
-
-.projetos-container {
-  display: flex;
-  justify-content: center;
-  gap: var(--espacamento-l);
-  flex-wrap: wrap;
-  margin-top: var(--espacamento-xl);
-}
-
-.projeto-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra mais sutil */
-  max-width: 350px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
-}
-
-/* Efeito de "elevação" ao passar o mouse */
-.projeto-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
-}
-
-.projeto-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.projeto-card .projeto-conteudo {
-  padding: var(--espacamento-m);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* Faz este container ocupar todo o espaço vertical disponível */
-}
-
-.projeto-card h3 {
-  font-size: var(--tamanho-titulo-3);
-  margin-bottom: var(--espacamento-s);
-  text-align: left; /* Alinha o título à esquerda */
-}
-
-.projeto-card p {
-  text-align: left; /* Melhora a legibilidade de parágrafos */
-  line-height: 1.6; /* Aumenta o espaçamento entre linhas */
-  margin-bottom: var(--espacamento-l);
-  flex-grow: 1; /* Empurra o botão para o final do card */
-}
-
-.projeto-card .btn-principal {
-  align-self: flex-start; /* Alinha o botão "Saiba Mais" à esquerda */
-}
+/* --- Formulário de Cadastro --- */
+.secao-formulario { padding: var(--espacamento-xl); }
+.formulario-cadastro { max-width: 700px; margin: 0 auto; background-color: #ffffff; padding: var(--espacamento-l); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+.formulario-cadastro fieldset { border: none; margin-bottom: var(--espacamento-l); }
+.formulario-cadastro legend { font-size: var(--tamanho-titulo-3); font-weight: bold; color: var(--cor-primaria); margin-bottom: var(--espacamento-m); width: 100%; padding-bottom: var(--espacamento-s); border-bottom: 2px solid var(--cor-fundo); }
+.campo-formulario { margin-bottom: var(--espacamento-m); text-align: left; }
+.campo-formulario label { display: block; margin-bottom: var(--espacamento-xs); font-weight: bold; }
+.campo-formulario input { width: 100%; padding: var(--espacamento-s); border: 1px solid #ccc; border-radius: 4px; font-size: var(--tamanho-texto-normal); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.campo-formulario input:focus { outline: none; border-color: var(--cor-acento); box-shadow: 0 0 0 3px rgba(27, 156, 252, 0.25); }
+.campo-formulario.erro label { color: #dc3545; }
+.campo-formulario.erro input { border-color: #dc3545; background-color: #f8d7da; }
+.mensagem-erro { color: #dc3545; font-size: 0.875rem; margin-top: var(--espacamento-xs); display: block; }
 
 /* ============================================= */
-/* SEÇÕES GLOBAIS                                */
+/* ACESSIBILIDADE E UX                           */
 /* ============================================= */
-.secao { padding: var(--espacamento-xxl) var(--espacamento-xl); text-align: center; }
-
-/* ADICIONE ESTA NOVA REGRA ABAIXO */
-.secao h2 {
-  margin-bottom: var(--espacamento-m); /* Adiciona um espaçamento de 24px abaixo do título */
-}
-
-.secao-escura { background-color: var(--cor-primaria); color: var(--cor-texto-claro); }
-.secao-escura h2 { color: var(--cor-texto-claro); }
-
-/* ============================================= */
-/* PÁGINA DE PROJETOS - SEÇÕES CTA (REFINADO)    */
-/* ============================================= */
-
-.secao-cta {
-  color: var(--cor-texto-claro);
-}
-
-.secao-cta .cta-conteudo {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.secao-cta h2 {
-  font-size: var(--tamanho-titulo-1);
-  margin-bottom: var(--espacamento-m);
-  color: var(--cor-texto-claro);
-}
-
-.secao-cta p {
-  font-size: var(--tamanho-texto-grande);
-  line-height: 1.7; /* Melhora o espaçamento do texto */
-  margin-bottom: var(--espacamento-l);
-}
-
-
-/* --- Imagem de Fundo para "Seja um Mentor" --- */
-.cta-mentor {
-  position: relative;
-  background-image: linear-gradient(rgba(10, 61, 98, 0.9), rgba(10, 61, 98, 0.95)),
-    url("https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzEyMHwwfDF8c2VhcmNofDR8fG1lbnRvcnxlbnwwfHx8fDE3Mjg5Njc5OTV8MA&ixlib=rb-4.0.3&q=80&w=1080");
-  background-size: cover;
-  background-position: center;
-}
-
-/* --- Imagem de Fundo para "Invista em um Futuro" --- */
-/* --- Imagem de Fundo para "Invista em um Futuro" --- */
-.cta-doacao {
-  position: relative;
-  /* SUBSTITUINDO A URL ANTIGA PELA NOVA E VERIFICADA */
-  background-image: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.95)),
-    url("https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzEyMHwwfDF8c2VhcmNofDEyfHxhc3Npc3RhbmNlfGVufDB8fHx8MTcyODk2OTI4Nnww&ixlib=rb-4.0.3&q=80&w=1080");
-  background-size: cover;
-  background-position: center;
-}
-
-/* ============================================= */
-/* PÁGINA DE CADASTRO - FORMULÁRIO               */
-/* ============================================= */
-
-.secao-formulario {
-  padding: var(--espacamento-xl);
-}
-
-.formulario-cadastro {
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  padding: var(--espacamento-l);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.formulario-cadastro fieldset {
-  border: none;
-  margin-bottom: var(--espacamento-l);
-}
-
-.formulario-cadastro legend {
-  font-size: var(--tamanho-titulo-3);
-  font-weight: bold;
-  color: var(--cor-primaria);
-  margin-bottom: var(--espacamento-m);
-  width: 100%;
-  padding-bottom: var(--espacamento-s);
-  border-bottom: 2px solid var(--cor-fundo);
-}
-
-.campo-formulario {
-  margin-bottom: var(--espacamento-m);
-  text-align: left;
-}
-
-.campo-formulario label {
-  display: block;
-  margin-bottom: var(--espacamento-xs);
-  font-weight: bold;
-}
-
-.campo-formulario input {
-  width: 100%;
-  padding: var(--espacamento-s);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: var(--tamanho-texto-normal);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Feedback visual quando o campo está em foco (clicado) */
-.campo-formulario input:focus {
-  outline: none;
-  border-color: var(--cor-acento);
-  box-shadow: 0 0 0 3px rgba(27, 156, 252, 0.25);
-}
-
-/* ============================================= */
-/* MODIFICADOR DE BOTÃO                          */
-/* ============================================= */
-
-.btn-outline {
-  background-color: transparent; /* Fundo transparente */
-  color: var(--cor-texto-claro); /* Texto branco */
-  border: 2px solid var(--cor-texto-claro); /* Borda branca */
-}
-
-.btn-outline:hover {
-  background-color: var(--cor-texto-claro); /* Fundo se torna branco no hover */
-  color: var(--cor-primaria); /* Texto se torna azul escuro */
-}
-
-/* ============================================= */
-/* PÁGINA DE CADASTRO - SEÇÃO INTRODUÇÃO         */
-/* ============================================= */
-
-.secao-introducao-form {
-  padding: 0; /* Remove o padding padrão para permitir a largura total */
-  color: var(--cor-texto-claro);
-  position: relative;
-  
-  /* A Mágica da Imagem de Fundo "Azulada" */
-  background-image: linear-gradient(rgba(10, 61, 98, 0.9), rgba(10, 61, 98, 0.95)),
-    url("https://images.unsplash.com/photo-1557804506-669a67965ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzEyMHwwfDF8c2VhcmNofDEzfHxjb2xsYWJvcmF0aW9ufGVufDB8fHx8MTcyODk3MTQzN3ww&ixlib=rb-4.0.3&q=80&w=1080");
-  background-size: cover;
-  background-position: center;
-}
-
-/* O container interno recebe o padding e controla a largura */
-.secao-introducao-form .introducao-conteudo {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: var(--espacamento-xxl) var(--espacamento-xl); /* Aplica o espaçamento aqui */
-}
-
-/* Garante que o título seja branco */
-.secao-introducao-form h2 {
-  color: var(--cor-texto-claro);
-  margin-bottom: var(--espacamento-m);
-}
-
-/* ============================================= */
-/* AJUSTES TIPOGRÁFICOS                          */
-/* ============================================= */
-
-/* Classe para dar a aparência de um título principal a qualquer elemento */
-.titulo-grande {
-  font-size: var(--tamanho-titulo-1); /* Usa a variável de 48px que definimos! */
-  font-weight: 900; /* Deixa a fonte mais grossa e impactante */
-}
-
-/* Classe para dar a aparência de um parágrafo de destaque */
-.paragrafo-grande {
-  font-size: var(--tamanho-texto-grande); /* Usa a variável de 18px */
-}
-
-/* ============================================= */
-/* PÁGINA DE CADASTRO - VALIDAÇÃO                */
-/* ============================================= */
-
-/* Estilo para o container do campo quando houver erro */
-.campo-formulario.erro .campo-rotulo {
-  color: #dc3545; /* Vermelho para o label */
-}
-
-.campo-formulario.erro input {
-  border-color: #dc3545; /* Borda vermelha */
-  background-color: #f8d7da; /* Fundo levemente avermelhado */
-}
-
-/* Estilo para a mensagem de erro que será adicionada via JS */
-.mensagem-erro {
-  color: #dc3545;
-  font-size: 0.875rem; /* 14px */
-  margin-top: var(--espacamento-xs);
-  display: block;
-}
-
-/* ============================================= */
-/* COMPONENTE DE ACESSIBILIDADE (REFINADO)       */
-/* ============================================= */
-.acessibilidade-container {
-  position: fixed;
-  top: 150px;
-  left: 20px;
-  z-index: 999;
-}
-#btn-acessibilidade {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-claro);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease;
-}
-#btn-acessibilidade:hover {
-  background-color: var(--cor-secundaria);
-}
-.acessibilidade-menu {
-  display: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  padding: var(--espacamento-s);
-  width: 200px;
-}
+.acessibilidade-container { position: fixed; top: 150px; left: 20px; z-index: 999; }
+body:has(.hero-header-overlay) .acessibilidade-container { top: 20px; }
+#btn-acessibilidade { background-color: var(--cor-primaria); color: var(--cor-texto-claro); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center; transition: background-color 0.3s ease; }
+#btn-acessibilidade:hover { background-color: var(--cor-secundaria); }
+.acessibilidade-menu { display: none; position: absolute; top: 60px; left: 0; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); padding: var(--espacamento-s); width: 200px; }
 .acessibilidade-menu.ativo { display: block; }
-.acessibilidade-menu ul li { margin-bottom: var(--espacamento-xs); }
 .acessibilidade-menu button { width: 100%; background: none; border: none; text-align: left; padding: var(--espacamento-s); cursor: pointer; border-radius: 4px; }
 .acessibilidade-menu button:hover { background-color: var(--cor-fundo); }
 
-/* ============================================= */
-/* BOTÃO VOLTAR AO TOPO (REFINADO)               */
-/* ============================================= */
-#btn-voltar-topo {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 998;
-  background-color: var(--cor-secundaria);
-  color: var(--cor-texto-claro);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease;
+#btn-voltar-topo { display: none; position: fixed;
 }
-#btn-voltar-topo:hover { background-color: var(--cor-acento); }
-#btn-voltar-topo.visivel { display: flex; }
 
 /* ============================================= */
-/* FUNCIONALIDADES DE ACESSIBILIDADE (REFINADO)  */
+/* REFINAMENTOS FINAIS (v2)                      */
 /* ============================================= */
 
-/* Classe para o modo de Alto Contraste */
-body.alto-contraste {
-  --cor-primaria: #000000;
-  --cor-secundaria: #ffff00; /* Amarelo para destaques como botões */
-  --cor-acento: #00ffff; /* Ciano para hovers */
-  --cor-fundo: #000000;
-  --cor-texto: #ffffff;
-  --cor-texto-claro: #000000;
-  --cor-aviso: #ffff00;
+/* --- CORREÇÃO DE POSICIONAMENTO --- */
+/* Ajusta a posição do botão de acessibilidade ESPECIFICAMENTE na página inicial */
+.hero-header-overlay + main .acessibilidade-container {
+   top: 20px;
 }
-body.alto-contraste .pilar-card,
-body.alto-contraste .depoimento-card,
-body.alto-contraste .noticia-card,
-body.alto-contraste .projeto-card,
-body.alto-contraste .formulario-cadastro {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  border: 1px solid #ffff00;
-}
-body.alto-contraste .pilar-card h3,
-body.alto-contraste .formulario-cadastro legend { color: #ffff00; }
-body.alto-contraste .noticia-card p { color: #cccccc; }
-
-/* CORREÇÕES VISUAIS PARA O MODO DE ALTO CONTRASTE */
-body.alto-contraste .hero-header-overlay,
-body.alto-contraste .secao-numeros,
-body.alto-contraste .cta-mentor,
-body.alto-contraste .cta-doacao { background-image: none; }
-
-body.alto-contraste .logo span,
-body.alto-contraste .hero-nav a,
-body.alto-contraste .header-padrao .header-nav a { color: var(--cor-texto); }
-
-body.alto-contraste .logo svg path { stroke: var(--cor-secundaria); }
-body.alto-contraste .pilar-icone svg,
-body.alto-contraste .redes-sociais svg { fill: var(--cor-secundaria); }
-
-body.alto-contraste .btn-cta,
-body.alto-contraste .btn-principal {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-texto-claro);
-    border: 1px solid var(--cor-secundaria);
-}
-body.alto-contraste .btn-cta:hover,
-body.alto-contraste .btn-principal:hover { background-color: var(--cor-acento); color: var(--cor-texto-claro); }
-
-body.alto-contraste .btn-outline {
-    background-color: transparent;
-    border-color: var(--cor-secundaria);
-    color: var(--cor-secundaria);
-}
-body.alto-contraste .btn-outline:hover { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); }
-
-body.alto-contraste #btn-acessibilidade,
-body.alto-contraste #btn-voltar-topo {
-  background-color: var(--cor-secundaria);
-  color: var(--cor-texto-claro);
-}
-body.alto-contraste #btn-acessibilidade svg,
-body.alto-contraste #btn-voltar-topo svg {
-  fill: var(--cor-texto-claro);
-  stroke: var(--cor-texto-claro);
+/* Reseta para o padrão nas outras páginas */
+.header-padrao + main .acessibilidade-container {
+    top: 150px; /* Ou o valor original que você tinha */
 }
 
-body.alto-contraste footer { background-image: none; }
 
-/* ============================================= */
-/* CORREÇÕES FINAIS PARA O MODO DE ALTO CONTRASTE*/
-/* ============================================= */
+/* --- CORREÇÕES FINAIS PARA O MODO DE ALTO CONTRASTE --- */
 
-/* Garante que o texto dos botões principais seja legível (preto) */
+/* Garante que o texto dos botões seja legível (preto) */
 body.alto-contraste .btn-principal,
 body.alto-contraste .btn-cta {
   color: var(--cor-texto-claro); /* --cor-texto-claro é #000000 neste modo */
   background-color: var(--cor-secundaria);
 }
-
-/* Garante que o texto do hover do botão seja legível */
 body.alto-contraste .btn-principal:hover,
 body.alto-contraste .btn-cta:hover {
   color: var(--cor-texto-claro);
 }
 
 /* Garante que os ícones dos pilares fiquem visíveis (amarelos) */
-body.alto-contraste .pilar-icone svg path {
+body.alto-contraste .pilar-icone svg {
   stroke: var(--cor-secundaria); /* Usa a cor de destaque amarela */
 }
 
@@ -684,124 +217,46 @@ body.alto-contraste .cta-doacao p {
     color: var(--cor-texto);
 }
 
-/* Garante que o logo permaneça visível */
-body.alto-contraste .logo span {
-    color: var(--cor-texto);
-}
-body.alto-contraste .logo svg path {
-    stroke: var(--cor-secundaria);
-}
-
-body.alto-contraste .secao-sobre blockquote {
-  color: var(--cor-secundaria); /* --cor-secundaria é #ffff00 neste modo */
-  border-left-color: var(--cor-secundaria);
-}
-
 /* ============================================= */
-/* SEÇÃO MISSÃO (INDEX.HTML)                     */
+/* ACESSIBILIDADE E UX (FINAL CORRIGIDO)         */
 /* ============================================= */
+.acessibilidade-container { position: fixed; top: 150px; left: 20px; z-index: 999; }
+/* CORREÇÃO: Posição específica para Index */
+body:has(.hero-header-overlay) .acessibilidade-container { top: 200px; }
 
-.secao-missao {
-  display: flex;
-  align-items: center; /* Alinha o texto e a imagem verticalmente */
-  gap: var(--espacamento-xxl);
-  background-color: var(--cor-fundo); /* Usa o fundo claro para contraste */
-  text-align: left; /* Alinha o texto à esquerda para melhor legibilidade */
+#btn-acessibilidade { background-color: var(--cor-primaria); color: var(--cor-texto-claro); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center; transition: background-color 0.3s ease; }
+#btn-acessibilidade:hover { background-color: var(--cor-secundaria); }
+.acessibilidade-menu { display: none; position: absolute; top: 60px; left: 0; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); padding: var(--espacamento-s); width: 200px; }
+.acessibilidade-menu.ativo { display: block; }
+.acessibilidade-menu button { width: 100%; background: none; border: none; text-align: left; padding: var(--espacamento-s); cursor: pointer; border-radius: 4px; color: var(--cor-texto); }
+.acessibilidade-menu button:hover { background-color: var(--cor-fundo); }
+
+#btn-voltar-topo { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 998; background-color: var(--cor-secundaria); color: var(--cor-texto-claro); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); justify-content: center; align-items: center; transition: background-color 0.3s ease; }
+#btn-voltar-topo:hover { background-color: var(--cor-acento); }
+#btn-voltar-topo.visivel { display: flex; }
+#btn-voltar-topo svg { stroke: var(--cor-texto-claro); }
+
+/* --- MODO DE ALTO CONTRASTE (FINAL CORRIGIDO) --- */
+body.alto-contraste {
+  --cor-primaria: #000000; --cor-secundaria: #ffff00; --cor-acento: #00ffff; --cor-fundo: #000000; --cor-texto: #ffffff; --cor-texto-claro: #000000; --cor-aviso: #ffff00;
 }
-
-.secao-missao .missao-conteudo {
-  flex: 1; /* Faz o conteúdo de texto ocupar metade do espaço */
-}
-
-.secao-missao .missao-imagem {
-  flex: 1;
-  min-height: 450px;
-  border-radius: 8px;
-  background-image: url('../images/missao.png'); /* ATUALIZE O NOME DO ARQUIVO */
-  background-size: cover;
-  background-position: center;
-}
-
-.secao-missao h2 {
-  text-align: left;
-  margin-bottom: var(--espacamento-m);
-}
-
-.secao-missao p {
-  font-size: var(--tamanho-texto-grande);
-  line-height: 1.7;
-  text-align: justify;
-}
-
-.missao {
-  background-color: var(--cor-aviso);
-  
-}
-
-.missao p {
-  color: var(--cor-primaria);
-}
-
-.missao h2 {
-  color: var(--cor-primaria);
-}
-
-/* ============================================= */
-/* SEÇÃO SOBRE NÓS (INDEX.HTML)                  */
-/* ============================================= */
-
-.secao-sobre {
-  background-color: var(--cor-fundo); /* Fundo claro padrão */
-}
-
-.secao-sobre .sobre-conteudo {
-  max-width: 900px; /* Limita a largura para melhor legibilidade */
-  margin: 0 auto; /* Centraliza o conteúdo */
-}
-
-.secao-sobre h2 {
-  margin-bottom: var(--espacamento-m);
-}
-
-.secao-sobre p {
-  font-size: var(--tamanho-texto-grande);
-  line-height: 1.7;
-  text-align: justify; /* Alinhamento justificado para um visual de "bloco de texto" */
-}
-
-/* ============================================= */
-/* REFINAMENTO DA SEÇÃO SOBRE NÓS                */
-/* ============================================= */
-
-.secao-sobre {
-  position: relative; /* Necessário para posicionar o elemento gráfico */
-  overflow: hidden; /* Garante que o elemento não vaze */
-}
-
-.secao-sobre::before {
-  content: '</>';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--fonte-mono);
-  font-size: 30rem; /* Tamanho gigante */
-  font-weight: 900;
-  color: var(--cor-primaria);
-  opacity: 0.05; /* Extremamente sutil */
-  z-index: 0;
-}
-
-.secao-sobre .sobre-conteudo {
-  position: relative; /* Garante que o texto fique por cima */
-  z-index: 1;
-}
-
-.secao-sobre blockquote {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--cor-primaria);
-  border-left: 4px solid var(--cor-secundaria);
-  padding-left: var(--espacamento-m);
-  margin: var(--espacamento-l) 0;
-}
+body.alto-contraste .card,
+body.alto-contraste .formulario-cadastro { background-color: #1a1a1a; color: #ffffff; border: 1px solid #ffff00; }
+body.alto-contraste .pilar-card h3, body.alto-contraste .formulario-cadastro legend, body.alto-contraste .secao-sobre blockquote { color: var(--cor-secundaria); border-left-color: var(--cor-secundaria); }
+body.alto-contraste .noticia-card p { color: #cccccc; }
+body.alto-contraste .hero-header-overlay, body.alto-contraste .secao-numeros, body.alto-contraste .cta-mentor, body.alto-contraste .cta-doacao, body.alto-contraste footer { background-image: none !important; background-color: var(--cor-primaria) !important; }
+body.alto-contraste .logo span, body.alto-contraste .hero-nav a, body.alto-contraste .header-padrao .header-nav a { color: var(--cor-texto); }
+body.alto-contraste .logo svg path { stroke: var(--cor-secundaria); }
+body.alto-contraste .pilar-icone svg path { stroke: var(--cor-secundaria); }
+body.alto-contraste .redes-sociais svg { fill: var(--cor-secundaria); }
+body.alto-contraste .btn-cta, body.alto-contraste .btn-principal { color: var(--cor-texto-claro); background-color: var(--cor-secundaria); border: 1px solid var(--cor-secundaria); }
+body.alto-contraste .btn-cta:hover, body.alto-contraste .btn-principal:hover { background-color: var(--cor-acento); color: var(--cor-texto-claro); }
+body.alto-contraste .btn-outline { background-color: transparent; border-color: var(--cor-secundaria); color: var(--cor-secundaria); }
+body.alto-contraste .btn-outline:hover { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); }
+body.alto-contraste #btn-acessibilidade, body.alto-contraste #btn-voltar-topo { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); }
+body.alto-contraste #btn-acessibilidade svg, body.alto-contraste #btn-voltar-topo svg { fill: var(--cor-texto-claro); stroke: var(--cor-texto-claro); }
+body.alto-contraste footer h2, body.alto-contraste footer p, body.alto-contraste footer a { color: var(--cor-texto); }
+body.alto-contraste .secao-escura h2 { color: var(--cor-texto); }
+body.alto-contraste .cta-mentor h2, body.alto-contraste .cta-mentor p, body.alto-contraste .cta-doacao h2, body.alto-contraste .cta-doacao p { color: var(--cor-texto); }
+body.alto-contraste .secao-missao h2, body.alto-contraste .secao-missao p { color: var(--cor-texto); }
+body.alto-contraste .secao-sobre::before { opacity: 0.1; color: var(--cor-secundaria); }
