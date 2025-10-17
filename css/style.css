@@ -149,20 +149,6 @@ footer .links-rapidos a:hover, footer .redes-sociais a:hover { opacity: 0.7; }
 .campo-formulario.erro input { border-color: #dc3545; background-color: #f8d7da; }
 .mensagem-erro { color: #dc3545; font-size: 0.875rem; margin-top: var(--espacamento-xs); display: block; }
 
-/* ============================================= */
-/* ACESSIBILIDADE E UX                           */
-/* ============================================= */
-.acessibilidade-container { position: fixed; top: 150px; left: 20px; z-index: 999; }
-body:has(.hero-header-overlay) .acessibilidade-container { top: 20px; }
-#btn-acessibilidade { background-color: var(--cor-primaria); color: var(--cor-texto-claro); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center; transition: background-color 0.3s ease; }
-#btn-acessibilidade:hover { background-color: var(--cor-secundaria); }
-.acessibilidade-menu { display: none; position: absolute; top: 60px; left: 0; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); padding: var(--espacamento-s); width: 200px; }
-.acessibilidade-menu.ativo { display: block; }
-.acessibilidade-menu button { width: 100%; background: none; border: none; text-align: left; padding: var(--espacamento-s); cursor: pointer; border-radius: 4px; }
-.acessibilidade-menu button:hover { background-color: var(--cor-fundo); }
-
-#btn-voltar-topo { display: none; position: fixed;
-}
 
 /* ============================================= */
 /* REFINAMENTOS FINAIS (v2)                      */
@@ -226,7 +212,7 @@ body:has(.hero-header-overlay) .acessibilidade-container { top: 200px; }
 
 #btn-acessibilidade { background-color: var(--cor-primaria); color: var(--cor-texto-claro); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center; transition: background-color 0.3s ease; }
 #btn-acessibilidade:hover { background-color: var(--cor-secundaria); }
-.acessibilidade-menu { display: none; position: absolute; top: 60px; left: 0; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); padding: var(--espacamento-s); width: 200px; }
+.acessibilidade-menu { display: none; position: absolute; top: 60px; left: 0; background-color: #4093ff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); padding: var(--espacamento-s); width: 200px; }
 .acessibilidade-menu.ativo { display: block; }
 .acessibilidade-menu button { width: 100%; background: none; border: none; text-align: left; padding: var(--espacamento-s); cursor: pointer; border-radius: 4px; color: var(--cor-texto); }
 .acessibilidade-menu button:hover { background-color: var(--cor-fundo); }
@@ -258,5 +244,19 @@ body.alto-contraste #btn-acessibilidade svg, body.alto-contraste #btn-voltar-top
 body.alto-contraste footer h2, body.alto-contraste footer p, body.alto-contraste footer a { color: var(--cor-texto); }
 body.alto-contraste .secao-escura h2 { color: var(--cor-texto); }
 body.alto-contraste .cta-mentor h2, body.alto-contraste .cta-mentor p, body.alto-contraste .cta-doacao h2, body.alto-contraste .cta-doacao p { color: var(--cor-texto); }
-body.alto-contraste .secao-missao h2, body.alto-contraste .secao-missao p { color: var(--cor-texto); }
+body.alto-contraste .secao-missao h2, body.alto-contraste .secao-missao p { color: #000000; }
 body.alto-contraste .secao-sobre::before { opacity: 0.1; color: var(--cor-secundaria); }
+
+/* ============================================= */
+/* CORREÇÃO: Texto de Card em Seção Escura     */
+/* ============================================= */
+
+/* Reseta a cor de texto padrão para cards dentro de seções escuras */
+.secao-escura .card {
+  color: var(--cor-texto); /* Reseta a cor para o preto suave padrão */
+}
+
+/* Garante que links dentro de cards em seções escuras usem a cor de destaque */
+.secao-escura .card a {
+  color: var(--cor-acento); /* Define a cor do link para o azul de destaque */
+}
