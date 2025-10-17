@@ -740,3 +740,26 @@ body.alto-contraste .logo svg path {
 .missao h2 {
   color: var(--cor-primaria);
 }
+
+/* ============================================= */
+/* SEÇÃO SOBRE NÓS (INDEX.HTML)                  */
+/* ============================================= */
+
+.secao-sobre {
+  background-color: var(--cor-fundo); /* Fundo claro padrão */
+}
+
+.secao-sobre .sobre-conteudo {
+  max-width: 900px; /* Limita a largura para melhor legibilidade */
+  margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+.secao-sobre h2 {
+  margin-bottom: var(--espacamento-m);
+}
+
+.secao-sobre p {
+  font-size: var(--tamanho-texto-grande);
+  line-height: 1.7;
+  text-align: justify; /* Alinhamento justificado para um visual de "bloco de texto" */
+}
