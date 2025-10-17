@@ -691,3 +691,52 @@ body.alto-contraste .logo span {
 body.alto-contraste .logo svg path {
     stroke: var(--cor-secundaria);
 }
+
+/* ============================================= */
+/* SEÇÃO MISSÃO (INDEX.HTML)                     */
+/* ============================================= */
+
+.secao-missao {
+  display: flex;
+  align-items: center; /* Alinha o texto e a imagem verticalmente */
+  gap: var(--espacamento-xxl);
+  background-color: var(--cor-fundo); /* Usa o fundo claro para contraste */
+  text-align: left; /* Alinha o texto à esquerda para melhor legibilidade */
+}
+
+.secao-missao .missao-conteudo {
+  flex: 1; /* Faz o conteúdo de texto ocupar metade do espaço */
+}
+
+.secao-missao .missao-imagem {
+  flex: 1;
+  min-height: 450px;
+  border-radius: 8px;
+  background-image: url('../images/missao.png'); /* ATUALIZE O NOME DO ARQUIVO */
+  background-size: cover;
+  background-position: center;
+}
+
+.secao-missao h2 {
+  text-align: left;
+  margin-bottom: var(--espacamento-m);
+}
+
+.secao-missao p {
+  font-size: var(--tamanho-texto-grande);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.missao {
+  background-color: var(--cor-aviso);
+  
+}
+
+.missao p {
+  color: var(--cor-primaria);
+}
+
+.missao h2 {
+  color: var(--cor-primaria);
+}
