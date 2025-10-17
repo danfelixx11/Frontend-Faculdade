@@ -194,3 +194,49 @@ if (form) {
     else { console.log("Formulário inválido."); }
   });
 }
+
+// ============================================= //
+// LÓGICA DA ANIMAÇÃO DE CONTAGEM                //
+// ============================================= //
+
+const secaoNumeros = document.querySelector('.secao-numeros');
+
+// Função que executa a animação de contagem
+const animarNumeros = () => {
+  const contadores = document.querySelectorAll('.numero-item .numero');
+  const duracao = 2000; // Animação dura 2 segundos
+
+  contadores.forEach(contador => {
+    const numeroFinal = parseInt(contador.parentElement.dataset.numero);
+    let contadorAtual = 0;
+    
+    // Calcula o quanto incrementar a cada passo para a animação ser suave
+    const incremento = numeroFinal / (duracao / 16); // ~60fps
+
+    const timer = setInterval(() => {
+      contadorAtual += incremento;
+      if (contadorAtual >= numeroFinal) {
+        contador.innerText = `+${numeroFinal}`;
+        clearInterval(timer); // Para a animação
+      } else {
+        contador.innerText = `+${Math.ceil(contadorAtual)}`;
+      }
+    }, 16); // Roda a cada ~16ms
+  });
+};
+
+// O "vigia" que observa quando a seção entra na tela
+const observer = new IntersectionObserver((entries, observer) => {
+  // entries[0] é a nossa .secao-numeros
+  if (entries[0].isIntersecting) {
+    animarNumeros(); // Dispara a animação
+    observer.unobserve(secaoNumeros); // Para de observar, para a animação rodar só uma vez
+  }
+}, {
+  threshold: 0.5 // Dispara quando 50% da seção estiver visível
+});
+
+// Inicia a observação
+if (secaoNumeros) {
+  observer.observe(secaoNumeros);
+}
