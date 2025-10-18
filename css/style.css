@@ -106,7 +106,7 @@ footer .links-rapidos a:hover, footer .redes-sociais a:hover { opacity: 0.7; }
 .hero-texto { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
 .hero-texto .tagline { font-family: var(--fonte-mono); display: block; margin-bottom: var(--espacamento-s); opacity: 0.8; }
 .hero-texto h2 { font-size: var(--tamanho-titulo-1); margin-bottom: var(--espacamento-l); max-width: 600px; }
-.hero-texto .btn-principal { align-self: flex-start; }
+.hero-texto .btn-principal { align-self: flex-start; margin-top: var(--espacamento-m); }
 
 /* --- Header Padrão (páginas internas) --- */
 .header-padrao { background-color: var(--cor-primaria); padding: var(--espacamento-m) var(--espacamento-xl); display: flex; justify-content: space-between; align-items: center; }
