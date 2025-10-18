@@ -260,3 +260,64 @@ body.alto-contraste .secao-sobre::before { opacity: 0.1; color: var(--cor-secund
 .secao-escura .card a {
   color: var(--cor-acento); /* Define a cor do link para o azul de destaque */
 }
+
+/* ============================================= */
+/* RESPONSIVIDADE (MOBILE-FIRST)                 */
+/* ============================================= */
+
+/* --- Estilo Base do Hambúrguer (Escondido no Desktop) --- */
+.btn-hamburguer {
+  display: none; /* Escondido por padrão (Desktop) */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001; /* Garante que fique acima */
+}
+
+/* Cor do ícone (branco no hero, branco no header padrão) */
+.hero-topo .btn-hamburguer svg {
+  stroke: var(--cor-texto-claro);
+}
+.header-padrao .btn-hamburguer svg {
+  stroke: var(--cor-texto-claro);
+}
+
+
+/* --- Breakpoint (Ex: 900px) --- */
+/* Quando a tela for MENOR que 900px... */
+@media (max-width: 900px) {
+
+  /* 1. Mostra o botão hambúrguer */
+  .btn-hamburguer {
+    display: block;
+  }
+
+  /* 2. Esconde a navegação de links (Desktop) */
+  .hero-nav ul,
+  .header-padrao .header-nav ul {
+    display: none; /* Esconde a lista de links */
+  }
+
+  /* 3. Estiliza o Menu Mobile (Quando ATIVO) */
+  .hero-nav ul.menu-ativo,
+  .header-padrao .header-nav ul.menu-ativo {
+    display: flex; /* RE-EXIBE o menu */
+    flex-direction: column; /* Empilha os links */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Altura total da tela */
+    background-color: var(--cor-primaria);
+    justify-content: center;
+    align-items: center;
+    gap: var(--espacamento-l);
+    z-index: 1000;
+  }
+
+  /* 4. Garante que os links fiquem grandes e visíveis */
+  .hero-nav ul.menu-ativo a,
+  .header-padrao .header-nav ul.menu-ativo a {
+    font-size: var(--tamanho-titulo-3);
+  }
+}

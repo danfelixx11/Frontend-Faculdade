@@ -7,8 +7,40 @@ const menuAcessibilidade = document.querySelector("#menu-acessibilidade");
 const btnVoltarTopo = document.querySelector("#btn-voltar-topo");
 const form = document.querySelector(".formulario-cadastro");
 const secaoNumeros = document.querySelector('.secao-numeros');
+const btnHamburguer = document.querySelector(".btn-hamburguer");
+const menuNavegacao = document.querySelector("#menu-navegacao");
 
 console.log("Script carregado!");
+
+// ============================================= //
+// LÓGICA DO MENU HAMBÚRGUER                     //
+// ============================================= //
+if (btnHamburguer && menuNavegacao) {
+  btnHamburguer.addEventListener('click', () => {
+    // 1. Adiciona/Remove a classe do Menu (para o CSS funcionar)
+    menuNavegacao.classList.toggle('menu-ativo');
+
+    // 2. Atualiza os atributos de acessibilidade
+    const estaAtivo = menuNavegacao.classList.contains('menu-ativo');
+    btnHamburguer.setAttribute('aria-expanded', estaAtivo);
+    
+    if (estaAtivo) {
+      btnHamburguer.setAttribute('aria-label', 'Fechar menu');
+      // (Opcional) Mudar o ícone para um "X"
+      btnHamburguer.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="32px" height="32px">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>`;
+    } else {
+      btnHamburguer.setAttribute('aria-label', 'Abrir menu');
+      // Devolve o ícone de hambúrguer
+      btnHamburguer.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="32px" height="32px">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>`;
+    }
+  });
+}
 
 // ============================================= //
 // LÓGICA DE ACESSIBILIDADE                      //
