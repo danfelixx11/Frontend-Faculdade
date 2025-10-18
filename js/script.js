@@ -46,13 +46,6 @@ if (btnHamburguer && menuNavegacao) {
 // LÓGICA DE ACESSIBILIDADE                      //
 // ============================================= //
 
-// Aplica estado de alto contraste salvo ao carregar
-(function aplicarEstadoAcessibilidade() {
-  const modoContrasteSalvo = localStorage.getItem('alto-contraste');
-  if (modoContrasteSalvo === 'true') {
-    document.body.classList.add('alto-contraste');
-  }
-})();
 
 function aumentarFonte() {
   let tamanhoFonte = parseFloat(window.getComputedStyle(html).fontSize);
@@ -64,12 +57,51 @@ function diminuirFonte() {
   html.style.fontSize = (tamanhoFonte - 1) + 'px';
 }
 
+// Lembre-se que o const html = document.documentElement; 
+// deve estar no topo do seu script.
+
+// SUBSTITUA PELO BLOCO ABAIXO no script.js
 function modoAltoContraste() {
-  document.body.classList.toggle('alto-contraste');
-  localStorage.setItem('alto-contraste', document.body.classList.contains('alto-contraste'));
+  // Verifica se estamos ativando ou desativando
+  const estaAtivando = !html.classList.contains('alto-contraste');
+  
+  // Se estiver ativando o Alto Contraste...
+  if (estaAtivando) {
+    // 1. Desliga o Modo Escuro
+    html.classList.remove('modo-escuro');
+    localStorage.setItem('modo-escuro', 'false');
+    
+    // 2. Liga o Alto Contraste
+    html.classList.add('alto-contraste');
+    localStorage.setItem('alto-contraste', 'true');
+  } else {
+    // Apenas desliga o Alto Contraste
+    html.classList.remove('alto-contraste');
+    localStorage.setItem('alto-contraste', 'false');
+  }
 }
 
-// CORREÇÃO: Toda a lógica dos botões do menu foi movida PARA DENTRO deste IF
+function modoEscuro() {
+  // Verifica se estamos ativando ou desativando
+  const estaAtivando = !html.classList.contains('modo-escuro');
+
+  // Se estiver ativando o Modo Escuro...
+  if (estaAtivando) {
+    // 1. Desliga o Alto Contraste
+    html.classList.remove('alto-contraste');
+    localStorage.setItem('alto-contraste', 'false');
+
+    // 2. Liga o Modo Escuro
+    html.classList.add('modo-escuro');
+    localStorage.setItem('modo-escuro', 'true');
+  } else {
+    // Apenas desliga o Modo Escuro
+    html.classList.remove('modo-escuro');
+    localStorage.setItem('modo-escuro', 'false');
+  }
+}
+
+// SUBSTITUA PELO BLOCO ABAIXO:
 if (btnAcessibilidade && menuAcessibilidade) {
   btnAcessibilidade.addEventListener('click', () => {
     menuAcessibilidade.classList.toggle('ativo');
@@ -78,11 +110,13 @@ if (btnAcessibilidade && menuAcessibilidade) {
   const btnAumentarFonte = menuAcessibilidade.querySelector('ul li:nth-child(1) button');
   const btnDiminuirFonte = menuAcessibilidade.querySelector('ul li:nth-child(2) button');
   const btnAltoContraste = menuAcessibilidade.querySelector('ul li:nth-child(3) button');
+  const btnModoEscuro = menuAcessibilidade.querySelector('ul li:nth-child(4) button'); // <-- NOVO
 
-  if (btnAumentarFonte && btnDiminuirFonte && btnAltoContraste) {
+  if (btnAumentarFonte && btnDiminuirFonte && btnAltoContraste && btnModoEscuro) { // <-- NOVO
     btnAumentarFonte.addEventListener('click', aumentarFonte);
     btnDiminuirFonte.addEventListener('click', diminuirFonte);
     btnAltoContraste.addEventListener('click', modoAltoContraste);
+    btnModoEscuro.addEventListener('click', modoEscuro); // <-- NOVO
   }
 }
 

@@ -168,41 +168,152 @@ footer .links-rapidos a:hover, footer .redes-sociais a:hover { opacity: 0.7; }
 /* --- CORREÇÕES FINAIS PARA O MODO DE ALTO CONTRASTE --- */
 
 /* Garante que o texto dos botões seja legível (preto) */
-body.alto-contraste .btn-principal,
-body.alto-contraste .btn-cta {
+html.alto-contraste .btn-principal,
+html.alto-contraste .btn-cta {
   color: var(--cor-texto-claro); /* --cor-texto-claro é #000000 neste modo */
   background-color: var(--cor-secundaria);
 }
-body.alto-contraste .btn-principal:hover,
-body.alto-contraste .btn-cta:hover {
+html.alto-contraste .btn-principal:hover,
+html.alto-contraste .btn-cta:hover {
   color: var(--cor-texto-claro);
 }
 
 /* Garante que os ícones dos pilares fiquem visíveis (amarelos) */
-body.alto-contraste .pilar-icone svg {
+html.alto-contraste .pilar-icone svg {
   stroke: var(--cor-secundaria); /* Usa a cor de destaque amarela */
 }
 
 /* Garante que os textos do footer fiquem visíveis (brancos) */
-body.alto-contraste footer,
-body.alto-contraste footer a,
-body.alto-contraste footer h2 {
+html.alto-contraste footer,
+html.alto-contraste footer a,
+html.alto-contraste footer h2 {
   color: var(--cor-texto); /* --cor-texto é #ffffff neste modo */
 }
 
 /* Garante que o título "Fique por Dentro" fique visível (branco) */
-body.alto-contraste .secao-escura h2 {
+html.alto-contraste .secao-escura h2 {
     color: var(--cor-texto);
 }
 
 /* Garante que os textos nas seções de CTA da página de projetos fiquem visíveis (brancos) */
-body.alto-contraste .cta-mentor h2,
-body.alto-contraste .cta-mentor p,
-body.alto-contraste .cta-doacao h2,
-body.alto-contraste .cta-doacao p {
+html.alto-contraste .cta-mentor h2,
+html.alto-contraste .cta-mentor p,
+html.alto-contraste .cta-doacao h2,
+html.alto-contraste .cta-doacao p {
     color: var(--cor-texto);
 }
 
+/* ============================================= */
+/* MODO ESCURO (Dark Mode)                         */
+/* ============================================= */
+html.modo-escuro {
+  /* 1. Define as variáveis de cor principais */
+  --cor-fundo: #121212;
+  --cor-texto: #e0e0e0;
+  --cor-primaria: #0f4a75;
+  --cor-secundaria: #1E88E5; /* Um pouco mais vibrante */
+  --cor-acento: #42A5F5;
+}
+
+/* 2. Aplica as variáveis globais */
+html.modo-escuro {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+/* 3. Sobrescreve fundos brancos de componentes */
+html.modo-escuro .card,
+html.modo-escuro .formulario-cadastro {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 4. Ajusta cores de texto dentro dos cards */
+html.modo-escuro .card--pilar h3 {
+  color: var(--cor-acento);
+}
+html.modo-escuro .card--pilar p,
+html.modo-escuro .card--depoimento blockquote,
+html.modo-escuro .card--depoimento cite,
+html.modo-escuro .card--noticia p,
+html.modo-escuro .card--projeto p {
+  color: #aaa;
+}
+html.modo-escuro .card--noticia h3,
+html.modo-escuro .card--projeto h3 {
+  color: var(--cor-texto);
+}
+
+/* 5. Seção Sobre */
+html.modo-escuro .secao-sobre p {
+  color: var(--cor-texto);
+}
+html.modo-escuro .secao-sobre blockquote {
+  color: var(--cor-acento);
+  border-left-color: var(--cor-acento);
+}
+
+/* 6. Seção Missão (O amarelo não funciona bem no escuro) */
+html.modo-escuro .secao-missao {
+  background-color: #2a2a2a;
+}
+html.modo-escuro .secao-missao h2,
+html.modo-escuro .secao-missao p {
+  color: var(--cor-texto);
+}
+
+/* 7. Formulário */
+html.modo-escuro .formulario-cadastro legend {
+  color: var(--cor-acento);
+  border-bottom-color: #333;
+}
+html.modo-escuro .formulario-cadastro input {
+  background-color: #333;
+  border-color: #555;
+  color: #fff;
+}
+html.modo-escuro .formulario-cadastro input::placeholder {
+  color: #888;
+}
+html.modo-escuro .formulario-cadastro input:focus {
+  border-color: var(--cor-acento);
+  box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.25);
+}
+html.modo-escuro .campo-formulario.erro input {
+  background-color: #4d1a20;
+  border-color: #dc3545;
+}
+
+/* 8. Links */
+html.modo-escuro a {
+  color: var(--cor-acento);
+}
+html.modo-escuro .card--noticia a, 
+html.modo-escuro .card--projeto a {
+  color: var(--cor-secundaria);
+}
+
+html.modo-escuro .card--projeto a.btn-principal {
+  color: #ffffff; /* Força o texto branco de volta */
+}
+html.modo-escuro .card--projeto a.btn-principal:hover {
+  color: #ffffff; /* E também no hover */
+}
+/* 9. Correção de Contraste de Botões */
+/*
+  Sobrescreve a regra genérica "html.modo-escuro a" para
+  garantir que os botões principais tenham texto branco.
+*/
+html.modo-escuro .btn-principal,
+html.modo-escuro .btn-cta {
+  color: #ffffff; /* Força o texto do botão a ser branco */
+}
+
+html.modo-escuro .btn-principal:hover,
+html.modo-escuro .btn-cta:hover {
+  color: #ffffff; /* Garante que o hover também seja branco */
+}
 /* ============================================= */
 /* ACESSIBILIDADE E UX (FINAL CORRIGIDO)         */
 /* ============================================= */
@@ -223,30 +334,33 @@ body:has(.hero-header-overlay) .acessibilidade-container { top: 200px; }
 #btn-voltar-topo svg { stroke: var(--cor-texto-claro); }
 
 /* --- MODO DE ALTO CONTRASTE (FINAL CORRIGIDO) --- */
-body.alto-contraste {
+html.alto-contraste {
   --cor-primaria: #000000; --cor-secundaria: #ffff00; --cor-acento: #00ffff; --cor-fundo: #000000; --cor-texto: #ffffff; --cor-texto-claro: #000000; --cor-aviso: #ffff00;
 }
-body.alto-contraste .card,
-body.alto-contraste .formulario-cadastro { background-color: #1a1a1a; color: #ffffff; border: 1px solid #ffff00; }
-body.alto-contraste .pilar-card h3, body.alto-contraste .formulario-cadastro legend, body.alto-contraste .secao-sobre blockquote { color: var(--cor-secundaria); border-left-color: var(--cor-secundaria); }
-body.alto-contraste .noticia-card p { color: #cccccc; }
-body.alto-contraste .hero-header-overlay, body.alto-contraste .secao-numeros, body.alto-contraste .cta-mentor, body.alto-contraste .cta-doacao, body.alto-contraste footer { background-image: none !important; background-color: var(--cor-primaria) !important; }
-body.alto-contraste .logo span, body.alto-contraste .hero-nav a, body.alto-contraste .header-padrao .header-nav a { color: var(--cor-texto); }
-body.alto-contraste .logo svg path { stroke: var(--cor-secundaria); }
-body.alto-contraste .pilar-icone svg path { stroke: var(--cor-secundaria); }
-body.alto-contraste .redes-sociais svg { fill: var(--cor-secundaria); }
-body.alto-contraste .btn-cta, body.alto-contraste .btn-principal { color: var(--cor-texto-claro); background-color: var(--cor-secundaria); border: 1px solid var(--cor-secundaria); }
-body.alto-contraste .btn-cta:hover, body.alto-contraste .btn-principal:hover { background-color: var(--cor-acento); color: var(--cor-texto-claro); }
-body.alto-contraste .btn-outline { background-color: transparent; border-color: var(--cor-secundaria); color: var(--cor-secundaria); }
-body.alto-contraste .btn-outline:hover { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); }
-body.alto-contraste #btn-acessibilidade, body.alto-contraste #btn-voltar-topo { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); }
-body.alto-contraste #btn-acessibilidade svg, body.alto-contraste #btn-voltar-topo svg { fill: var(--cor-texto-claro); stroke: var(--cor-texto-claro); }
-body.alto-contraste footer h2, body.alto-contraste footer p, body.alto-contraste footer a { color: var(--cor-texto); }
-body.alto-contraste .secao-escura h2 { color: var(--cor-texto); }
-body.alto-contraste .cta-mentor h2, body.alto-contraste .cta-mentor p, body.alto-contraste .cta-doacao h2, body.alto-contraste .cta-doacao p { color: var(--cor-texto); }
-body.alto-contraste .secao-missao h2, body.alto-contraste .secao-missao p { color: #000000; }
-body.alto-contraste .secao-sobre::before { opacity: 0.1; color: var(--cor-secundaria); }
-
+html.alto-contraste .card,
+html.alto-contraste .formulario-cadastro { background-color: #1a1a1a; color: #ffffff; border: 1px solid #ffff00; }
+html.alto-contraste .pilar-card h3, html.alto-contraste .formulario-cadastro legend, html.alto-contraste .secao-sobre blockquote { color: var(--cor-secundaria); border-left-color: var(--cor-secundaria); }
+html.alto-contraste .noticia-card p { color: #cccccc; }
+html.alto-contraste .hero-header-overlay, html.alto-contraste .secao-numeros, html.alto-contraste .cta-mentor, html.alto-contraste .cta-doacao, html.alto-contraste footer { background-image: none !important; background-color: var(--cor-primaria) !important; }
+html.alto-contraste .logo span, html.alto-contraste .hero-nav a, html.alto-contraste .header-padrao .header-nav a { color: var(--cor-texto); }
+html.alto-contraste .logo svg path { stroke: var(--cor-secundaria); }
+html.alto-contraste .pilar-icone svg path { stroke: var(--cor-secundaria); }
+html.alto-contraste .redes-sociais svg { fill: var(--cor-secundaria); }
+html.alto-contraste .btn-cta, html.alto-contraste .btn-principal { color: var(--cor-texto-claro); background-color: var(--cor-secundaria); border: 1px solid var(--cor-secundaria); }
+html.alto-contraste .btn-cta:hover, html.alto-contraste .btn-principal:hover { background-color: var(--cor-acento); color: var(--cor-texto-claro); }
+html.alto-contraste .btn-outline { background-color: transparent; border-color: var(--cor-secundaria); color: var(--cor-secundaria); }
+html.alto-contraste .btn-outline:hover { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); }
+html.alto-contraste #btn-acessibilidade, html.alto-contraste #btn-voltar-topo { background-color: var(--cor-secundaria); color: var(--cor-texto-claro); }
+html.alto-contraste #btn-acessibilidade svg, html.alto-contraste #btn-voltar-topo svg { fill: var(--cor-texto-claro); stroke: var(--cor-texto-claro); }
+html.alto-contraste footer h2, html.alto-contraste footer p, html.alto-contraste footer a { color: var(--cor-texto); }
+html.alto-contraste .secao-escura h2 { color: var(--cor-texto); }
+html.alto-contraste .cta-mentor h2, html.alto-contraste .cta-mentor p, html.alto-contraste .cta-doacao h2, html.alto-contraste .cta-doacao p { color: var(--cor-texto); }
+html.alto-contraste .secao-missao h2, html.alto-contraste .secao-missao p { color: #000000; }
+html.alto-contraste .secao-sobre::before { opacity: 0.1; color: var(--cor-secundaria); }
+html.alto-contraste .hero-nav a.btn-cta,
+html.alto-contraste .header-padrao .header-nav a.btn-cta {
+   color: var(--cor-texto-claro); /* Força o texto de volta para PRETO */
+}
 /* ============================================= */
 /* CORREÇÃO: Texto de Card em Seção Escura     */
 /* ============================================= */
