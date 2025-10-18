@@ -320,4 +320,73 @@ body.alto-contraste .secao-sobre::before { opacity: 0.1; color: var(--cor-secund
   .header-padrao .header-nav ul.menu-ativo a {
     font-size: var(--tamanho-titulo-3);
   }
+  /* 5. Ajustes Gerais de Seção */
+  .secao {
+    /* Reduz o padding lateral em telas menores */
+    padding: var(--espacamento-xl) var(--espacamento-m);
+  }
+
+  /* 6. Ajuste do Hero (index.html) */
+  .hero-texto {
+    align-items: center; /* Centraliza o conteúdo */
+    text-align: center;
+  }
+  .hero-texto h2 {
+    font-size: 2.5rem; /* Reduz um pouco o título principal */
+  }
+  .hero-texto .btn-principal {
+    align-self: center; /* Centraliza o botão */
+  }
+
+  /* 7. Ajuste da Seção Missão (index.html) */
+  .secao-missao {
+    flex-direction: column; /* Empilha o texto e a imagem */
+    gap: var(--espacamento-l);
+  }
+
+  .secao-missao .missao-imagem {
+    /* Define uma altura mais adequada para mobile */
+    min-height: 300px; 
+    
+    /* Garante que a imagem ocupe a largura total no modo coluna */
+    width: 100%;    
+  }
+
+  /* 8. Ajuste do Footer */
+  footer {
+    flex-direction: column; /* Empilha as colunas do footer */
+    align-items: center;
+    text-align: center;
+  }
+  footer address,
+  footer .newsletter-form,
+  footer .links-rapidos {
+    align-items: center;
+  }
+  footer .newsletter-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .redes-sociais {
+    justify-content: center; /* Centraliza os ícones sociais */
+  }
+
+/* 9. Responsividade dos Cards (Req. 18) */
+  .card-container {
+    /* Altera a direção para coluna, forçando o empilhamento */
+    flex-direction: column;
+    align-items: center; /* Centraliza os cards no container */
+  }
+
+  /* Força todos os tipos de card a ocupar a largura máxima 
+    disponível, com um limite para não ficar colado nas bordas.
+  */
+  .card--pilar,
+  .card--depoimento,
+  .card--noticia,
+  .card--projeto {
+    width: 100%;
+    max-width: 450px; /* Um limite máximo razoável para mobile */
+  }
 }
