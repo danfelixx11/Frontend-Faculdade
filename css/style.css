@@ -93,7 +93,7 @@ footer .newsletter-form input { display: block; width: 100%; padding: var(--espa
 footer .links-rapidos ul li { margin-bottom: var(--espacamento-xs); }
 footer .links-rapidos a, footer .redes-sociais a { color: var(--cor-texto-claro); transition: opacity 0.3s ease; }
 footer .links-rapidos a:hover, footer .redes-sociais a:hover { opacity: 0.7; }
-.redes-sociais { display: flex; gap: var(--espacamento-m); margin-top: var(--espacamento-m); }
+.redes-sociais { display: flex; gap: var(--espacamento-m); margin-top: var(--espacamento-m); margin-bottom: var(--espacamento-m); }
 .redes-sociais svg { width: 28px; height: 28px; }
 
 /* ============================================= */
@@ -484,6 +484,7 @@ html.alto-contraste .header-padrao .header-nav a.btn-cta {
   }
   .redes-sociais {
     justify-content: center; /* Centraliza os ícones sociais */
+
   }
 
 /* 9. Responsividade dos Cards (Req. 18) */
